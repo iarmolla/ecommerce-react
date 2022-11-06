@@ -1,0 +1,44 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  border: 1px solid #d5d5d5;
+  border-radius: 16px;
+  padding: 6rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-link {
+  font-size: 0.9em;
+  margin-bottom: 1rem;
+}
+.form-submit {
+  width: 300px;
+}
+.form-control {
+  width: 300px !important;
+}
+.form-checkout {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+}
+.form-errors {
+  color: #f40c0c;
+}
+.form-title {
+  font-family: "Roboto", sans-serif;
+}
+.cart {
+    color: #fff !important;
+  }
+  @media (max-width: 990px) {
+    .form{
+      padding: 1rem 1rem;
+      border: none;
+    }
+}

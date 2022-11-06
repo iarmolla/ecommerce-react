@@ -1,0 +1,154 @@
+.card-- {
+  padding: 0;
+}
+.card-buttons {
+  flex-direction: column;
+  align-items: center;
+}
+.card-button {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  background-color: #bfdbfe;
+  color: #308bf9;
+  border-radius: 8px;
+  opacity: 0.9;
+  transition: 200ms;
+}
+.card-button-- {
+  background-color: #2563eb;
+  color: #fff;
+}
+.card-button:hover {
+  transition: 200ms;
+  opacity: 1;
+}
+.card-price {
+  align-items: center;
+  gap: 0.5rem;
+}
+.price {
+  font-size: 1.5rem;
+}
+.card-send {
+  color: #18c26a;
+}
+.bxs-truck {
+  font-size: 1.5rem;
+  color: #18c26a;
+}
+.card-count {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.card-footer {
+  margin: 1rem 4rem;
+}
+.card-carousel {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  align-content: space-between;
+}
+.carousel-image {
+  border: 1px solid #a8adb8;
+  border-radius: 8px;
+  padding: 0.5rem;
+  object-fit: contain;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+.carousel-image-2 {
+  transform: scaleY(-1);
+}
+.carousel-image-3 {
+  transform: scaleX(-1);
+}
+.product-image {
+  border-radius: 8px;
+  width: 650px;
+  object-fit: contain;
+  padding: 5rem;
+  transition: 0.5s;
+}
+.product-image-2 {
+  transform: scaleY(-1);
+
+  border-radius: 8px;
+  width: 650px;
+  object-fit: contain;
+  padding: 5rem;
+  transition: 0.5s;
+}
+.product-image-3 {
+  transform: scaleX(-1);
+  border-radius: 8px;
+  width: 650px;
+  object-fit: contain;
+  padding: 5rem;
+  transition: 0.5s;
+}
+.product-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-product {
+  margin: 2rem;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.card-text-description {
+  font-size: 1.2rem;
+  color: #51585e;
+}.card-text-rate {
+  font-size: 1.2rem;
+  color: #ff7733;
+}
+.card-- {
+  padding: 2rem;
+  border: none;
+}
+.stars-image {
+  width: 7rem;
+  height: 1.3rem;
+}
+.card-link{
+  text-decoration: none;
+  text-align: center;
+}
+.card-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+@media (max-width:320px) {
+  .product-image{
+    width: 150px;
+  }
+  .card-carousel{
+    display: none;
+  }
+  .card-buttons{
+    display: flex;
+    flex-direction: column ;
+  }
+  .container-product{
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-image{
+    padding: 0;
+    height: 100px;
+  }
+  .card-price{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}

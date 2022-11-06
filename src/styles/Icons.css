@@ -1,0 +1,19 @@
+.men-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0.5rem;
+}
+.men-icons {
+  display: flex;
+  flex-direction: row;
+}
+.men-icon-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  background-color: #fff;
+}
