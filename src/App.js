@@ -12,6 +12,7 @@ import Women from "./Views/Women";
 import Technology from "./Views/Technology";
 import Jewelery from "./Views/Jewelery";
 import Purchase from "./Views/Purchase";
+import Prelanding from "./containers/Prelanding";
 
 function Dashboard() {
   return (
@@ -29,7 +30,7 @@ function App() {
         <Routes>
           <Route path="" element={<Dashboard></Dashboard>}>
             <Route path="/login" element={<Login></Login>}></Route>
-            <Route path="" element={<PrelandingView></PrelandingView>}></Route>
+            <Route path="" element={<Prelanding></Prelanding>}></Route>
             <Route
               path="/description/:id"
               element={<ProductDescription></ProductDescription>}
