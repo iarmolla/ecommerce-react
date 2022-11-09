@@ -8,10 +8,12 @@ import "../styles/prelanding.css";
 const PrelandingView = ({ ...props }) => {
   const [products, updateProducts] = useState();
   useEffect(() => {
+    props.loadUser(2)
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
       .then((response) => updateProducts(response));
   }, []);
+  console.log(props.users)
 
   return (
     <div>
