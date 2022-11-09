@@ -13,8 +13,15 @@ function getUserFetch(values) {
     values,
   }
 }
+function getUserFetchSuccess(values) {
+  return {
+    type: actionTypes.GET_USER_SUCCESS,
+    values,
+  }
+}
 
 export default {
   getProductsFetch,
-  getUserFetch
+  getUserFetch,
+  getUserFetchSuccess
 }
