@@ -17,9 +17,10 @@ const mapStateToProps = state => {
 const PrelandingContainer = ({...props}) => {
   return (
     <PrelandingView       
-      users={props}
+      loadUser={props.loadUser}
+      users={props.users}
     />
   )
 }
 
-export default connect(mapDispatchToProps,mapStateToProps)(PrelandingContainer)
+export default connect(mapStateToProps, mapDispatchToProps) (PrelandingContainer)
