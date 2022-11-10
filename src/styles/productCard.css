@@ -37,6 +37,10 @@
   color: #ff7733;
 }
 .card {
+  max-height: 600px;
+  max-width: 600px;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
 }
 .container-products {
@@ -44,9 +48,22 @@
   grid-template-columns: repeat(3, 400px);
   gap: 5rem;
 }
+.card-text{
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .card > img {
   width: 30%;
   height: 60%;
+  padding: 3rem;
   object-fit: contain;
-  padding-top: 1rem;
+  padding-top: 2rem;
+  min-height: 400px;
+  min-width: 400px;
+  max-height: 400px;
+  max-width: 400px;
 }
