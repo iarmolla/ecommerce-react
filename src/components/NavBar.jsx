@@ -22,47 +22,46 @@ function NavBar() {
             data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-            whileHover={{ scale: 1.1 }}
+            aria-label="Toggle navigation"            
             whileTap={{ scale: 0.9 }}
           >
             <span className="navbar-toggler-icon"></span>
           </motion.button>
           <div className="collapse navbar-collapse navbar-items" id="navbarNavAltMarkup">
             <div className="navbar-nav navbar-categories navbar-collapse"   >
-              <motion.div whileHover={{ scale: 1.1 }}
+              <motion.div 
                 whileTap={{ scale: 0.9 }}                
                 >
                 <Link to="/men" className="navbar-categories-link">
                   Hombres
                 </Link>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.1 }}
+              <motion.div
                 whileTap={{ scale: 0.9 }}>
                 <Link to="/women" className="navbar-categories-link">
                   Mujeres
                 </Link>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.1 }}
+              <motion.div
                 whileTap={{ scale: 0.9 }}>
                 <Link to="/electronics" className="navbar-categories-link">
                   Tecnologia
                 </Link>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.1 }}
+              <motion.div
                 whileTap={{ scale: 0.9 }}>
                 <Link to="/jewelery" className="navbar-categories-link">
                   Joyeria
                 </Link>
               </motion.div>
               <div className="navbar-icons--">
-                <motion.div whileHover={{ scale: 1.1 }}
+                <motion.div
                   whileTap={{ scale: 0.9 }}>
                   <Link to="/login">
                     <box-icon name="user"></box-icon>
                   </Link>
                 </motion.div>
-                <motion.div whileHover={{ scale: 1.1 }}
+                <motion.div
                   whileTap={{ scale: 0.9 }}>
                   <Link to="/cart">
                     <box-icon name="cart"></box-icon>
@@ -71,13 +70,13 @@ function NavBar() {
               </div>
             </div>
             <div className="navbar-icons">
-              <motion.div whileHover={{ scale: 1.1 }}
+              <motion.div
                 whileTap={{ scale: 0.9 }}>
                 <Link to="/login">
                   <box-icon name="user"></box-icon>
                 </Link>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.1 }}
+              <motion.div
                 whileTap={{ scale: 0.9 }}>
                 <Link to="/cart">
                   <box-icon name="cart"></box-icon>
