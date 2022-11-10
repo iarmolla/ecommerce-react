@@ -13,7 +13,6 @@ const PrelandingView = ({ ...props }) => {
       .then((res) => res.json())
       .then((response) => updateProducts(response));
   }, []);
-  console.log(props.users)
 
   return (
     <div>
@@ -37,7 +36,7 @@ const PrelandingView = ({ ...props }) => {
             className="rounded container-img"
           />
         </section>
-        <section className="container mt-5 shoes-section">
+        {/* <section className="container mt-5 shoes-section">
           <div className="w-25 m-5 ">
             <h2 className="container-title">
               Corré con comodidad en cualquier superficie
@@ -48,10 +47,10 @@ const PrelandingView = ({ ...props }) => {
             src="https://www.streetprorunning.com/blog/wp-content/uploads/2019/06/portada-ultra-bosst-19-para-blog-streetprorunning-2018-2019.jpg"
             alt=""
           />
-        </section>
+        </section> */}
       </main>
       <div>
-        <section className="">
+        <section className="section-new">
           <h3 className="section-news">Novedades</h3>
         </section>
       </div>
