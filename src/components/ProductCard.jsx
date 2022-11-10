@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 function ProductCard({ product }) {
   const notify = () => toast.success("Producto agregado al carrito");
   const productPrice = product.price * 300;
-  useEffect(() => {}, []);
   const images = (number) => {
     if (number > 0) {
       const image =
@@ -18,14 +17,17 @@ function ProductCard({ product }) {
   return (
     <>
       <motion.div className="card"
-            animate={{ opacity:1 }}
-            initial={{opacity:0}}
-            exit={{ opacity:0 }}
-            layout
-            >
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        layout
+      >
         <img src={product.image} className="card-img-top" alt="..." />
         <div className="card-body w-100">
-          <h5 className="card-text">{product.title}</h5>
+          <div>
+            <h5 className="card-text">{product.title}</h5>
+
+          </div>
           <div className="card-section">
             <div className="card-section card-section--">
               <img src={images(product.rating.rate)} className="stars-image" alt="" />
@@ -35,15 +37,17 @@ function ProductCard({ product }) {
               <p className="card-title">${productPrice.toLocaleString("es")}</p>
             </div>
           </div>
-          <Link
-            to={`/description/${product.id}`}
-            className="card-button card-button--"
-          >
-            Ver mas
-          </Link>
-          <button className="m-1 card-button" onClick={notify}>
-            Agregar al carrito
-          </button>
+          <div>
+            <Link
+              to={`/description/${product.id}`}
+              className="card-button card-button--"
+            >
+              Ver mas
+            </Link>
+            <button className="m-1 card-button" onClick={notify}>
+              Agregar al carrito
+            </button>
+          </div>
           <Toaster position="top-center" reverseOrder={false} />
         </div>
       </motion.div>
