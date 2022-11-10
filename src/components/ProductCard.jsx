@@ -33,9 +33,9 @@ function ProductCard({ product }) {
               <img src={images(product.rating.rate)} className="stars-image" alt="" />
               <span className="card-text--">{product.rating.rate}</span>
             </div>
-            <div className="card-price">
-              <p className="card-title">${productPrice.toLocaleString("es")}</p>
-            </div>
+          </div>
+          <div className="card-price">
+            <p className="card-title">${productPrice.toLocaleString("es")}</p>
           </div>
           <div>
             <Link
