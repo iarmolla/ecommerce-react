@@ -32,12 +32,6 @@
   align-content: center;
   align-items: center;
 }
-.card > img {
-  width: 30%;
-  height: 60%;
-  object-fit: contain;
-  padding-top: 1rem;
-}
 .shoes-section{
   display: block;
 }
