@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;1,700&display=swap');
+
+.landing {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+.landing-section{
+    width: 40%;
+}
+.landing-title {
+    font-size: 4rem;
+}
+.landing-image {
+    margin-top: 5rem;
+    width: 100%;
+   
+    object-fit: cover;
+}
+.landing-text {
+    color: #6e6e73;
+    font-size: 1.8rem;
+}
+
+.landing-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.landing-button{
+    outline: none;
+    text-decoration: none;
+    border-radius: .6rem;
+    color: #fff;
+    background-color: #1b7cdc;;
+}
+.landing-button:hover{
+    color: #fff;
+}
+.landing-link {
+    color: #191919;
+    outline: none;
+    text-decoration: none;
+}
+.landing-links{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

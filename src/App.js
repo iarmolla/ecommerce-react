@@ -13,6 +13,7 @@ import Technology from "./Views/Technology";
 import Jewelery from "./Views/Jewelery";
 import Purchase from "./Views/Purchase";
 import Prelanding from "./containers/Prelanding";
+import Landing from "./Views/Landing";
 
 function Dashboard() {
   return (
@@ -28,6 +29,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/landing" element={<Landing />}></Route>
           <Route path="" element={<Dashboard></Dashboard>}>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="" element={<Prelanding></Prelanding>}></Route>
