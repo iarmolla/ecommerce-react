@@ -36,7 +36,7 @@ function Men() {
             <AnimatePresence>
               <motion.div layout className={grid}>
                 {products?.map((e) => {
-                  return <ProductCard product={e} key={e.id}></ProductCard>;
+                  return <ProductCard product={e} key={e.id}></ProductCard>
                 })}
               </motion.div>
             </AnimatePresence>
