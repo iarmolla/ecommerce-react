@@ -4,7 +4,6 @@
 }
 
 .card-button-- {
-  background-color: chocolate;
   outline: none;
   text-decoration: none;
   border: none;
@@ -37,19 +36,20 @@
   color: #ff7733;
 }
 .card {
-  max-height: 600px;
-  max-width: 600px;
+  max-height: 400px;
+  max-width: 400px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  opacity: 1;
 }
+
 .container-products {
   display: grid;
   grid-template-columns: repeat(3, 400px);
   gap: 5rem;
 }
-.card-text{
-}
+
 .card-body {
   display: flex;
   flex-direction: column;
@@ -57,13 +57,13 @@
   gap: 4px;
 }
 
-.card > img {
+.card-image {
   width: 30%;
   height: 60%;
   padding: 3rem;
   object-fit: contain;
-  padding-top: 2rem;
-  min-height: 400px;
+  padding-top: 3rem;
+  min-height: 200px;
   min-width: 400px;
   max-height: 400px;
   max-width: 400px;

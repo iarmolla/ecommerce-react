@@ -16,17 +16,16 @@ function ProductCard({ product }) {
   };
   return (
     <>
-      <motion.div className="card"
+      <motion.div className="card "
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         exit={{ opacity: 0 }}
         layout
       >
-        <img src={product.image} className="card-img-top" alt="..." />
+        <img src={product.image} className="card-img-top card-image" alt="..." />
         <div className="card-body w-100">
           <div>
             <h5 className="card-text">{product.title}</h5>
-
           </div>
           <div className="card-section">
             <div className="card-section card-section--">
