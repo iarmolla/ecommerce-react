@@ -4,6 +4,7 @@ import ProductCard from "../components/ProductCard";
 import { Link } from "react-router-dom";
 import "../styles/productCard.css";
 import "../styles/prelanding.css";
+import Footer from '../components/Footer'
 
 const PrelandingView = ({ ...props }) => {
   const [products, updateProducts] = useState();
@@ -61,6 +62,7 @@ const PrelandingView = ({ ...props }) => {
           })}
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
