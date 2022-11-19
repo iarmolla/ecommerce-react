@@ -30,3 +30,13 @@
     gap: 2rem;
   }
 }
+@media (max-width: 1024px) {
+  .container-products {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(1, 800px);
+    gap: 1rem;
+  }
+}
