@@ -5,25 +5,19 @@ import "../styles/men.css";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from '../components/Footer'
 
-function Men() {
-  const [products, updateProducts] = useState();
-  const [spinner, updateSpinner] = useState(false);
+function Men({ ...props }) {
   const [grid, updateGrid] = useState("container-products");
-
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/category/men's%20clothing")
-      .then((res) => res.json())
-      .then((res) => {
-        updateSpinner(true);
-        updateProducts(res);
-      });
+    props.loadMen()
   }, []);
+  let products = [0, 1]
+  products = Object.values(props.getMen)
   return (
     <div>
       <div>
         <h3 className="men-title">30% de descuento pagando en efectivo!</h3>
       </div>
-      {!spinner ? (
+      {products.length == 0 ? (
         <div className="spinner">
           <div className="spinner-border m-5" role="status">
             <span className="visually-hidden">Loading...</span>

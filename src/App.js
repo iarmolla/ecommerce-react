@@ -1,18 +1,17 @@
 import "./App.css";
-import NavBar from "./components/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import PrelandingView from "./Views/PrelandingView";
-import ProductDescription from "./Views/ProductDescription";
-import Cart from "./Views/Cart";
 import "boxicons";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar";
 import Login from "./Views/Login";
-import Men from "./Views/Men";
-import Women from "./Views/Women";
-import Technology from "./Views/Technology";
-import Jewelery from "./Views/Jewelery";
+import JeweleryContainer from "./containers/Jewelery";
 import Purchase from "./Views/Purchase";
 import Prelanding from "./containers/Prelanding";
+import Description from "./containers/Description";
+import Men from "./containers/Men";
+import Women from "./containers/Women";
+import Techonology from "./containers/Technology";
+import Cart from "./containers/Cart";
 import Landing from "./Views/Landing";
 
 function Dashboard() {
@@ -35,16 +34,16 @@ function App() {
             <Route path="" element={<Prelanding></Prelanding>}></Route>
             <Route
               path="/description/:id"
-              element={<ProductDescription></ProductDescription>}
+              element={<Description></Description>}
             ></Route>
             <Route path="/cart" element={<Cart></Cart>}></Route>
             <Route path="/men" element={<Men></Men>}></Route>
             <Route path="/women" element={<Women></Women>}></Route>
             <Route
               path="/electronics"
-              element={<Technology></Technology>}
+              element={<Techonology></Techonology>}
             ></Route>
-            <Route path="/jewelery" element={<Jewelery></Jewelery>}></Route>
+            <Route path="/jewelery" element={<JeweleryContainer></JeweleryContainer>}></Route>
             <Route path="/purchase" element={<Purchase></Purchase>}></Route>
           </Route>
         </Routes>

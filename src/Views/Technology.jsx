@@ -4,26 +4,19 @@ import Icons from "../components/Icons";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from '../components/Footer'
 
-function Technology() {
-  const [products, updateProducts] = useState();
-  const [spinner, updateSpinner] = useState(false);
+function Technology({...props}) {
   const [grid, updateGrid] = useState("container-products");
-
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/category/electronics")
-      .then((res) => res.json())
-      .then((res) => {
-        updateSpinner(true);
-        updateProducts(res);
-      });
+    props.loadTechnology()
   }, []);
-
+  let products = [0, 1]
+  products = Object.values(props.getTechnology)
   return (
     <div>
       <div>
         <h3 className="men-title">30% de descuento pagando en efectivo!</h3>
       </div>
-      {!spinner ? (
+      {products.length == 0 ? (
         <div className="spinner">
           <div className="spinner-border m-5" role="status">
             <span className="visually-hidden">Loading...</span>

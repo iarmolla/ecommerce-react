@@ -1,9 +1,20 @@
 import { combineReducers } from 'redux'
 import usersReducer from './usersReducer'
-
+import jeweleryReducer from './jeweleryReducer'
+import productsReducer from './productsReducer'
+import menReducer from './menReducer'
+import womenReducer from './womenReducer'
+import technologyReducer from './technologyReducer'
+import cartReducer from './cartReducer'
 
 const rootReducer = combineReducers({
-    users:usersReducer
+    users:usersReducer,
+    jewelery: jeweleryReducer,
+    products: productsReducer,
+    men: menReducer,
+    women: womenReducer,
+    technology: technologyReducer,
+    cart: cartReducer
 })
 
 export default rootReducer

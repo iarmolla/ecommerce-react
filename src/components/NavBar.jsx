@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/navbar.css";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 function NavBar() {
   return (
@@ -22,16 +22,16 @@ function NavBar() {
             data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup"
             aria-expanded="false"
-            aria-label="Toggle navigation"            
+            aria-label="Toggle navigation"
             whileTap={{ scale: 0.9 }}
           >
             <span className="navbar-toggler-icon"></span>
           </motion.button>
           <div className="collapse navbar-collapse navbar-items" id="navbarNavAltMarkup">
-            <div className="navbar-nav navbar-categories navbar-collapse"   >
-              <motion.div 
-                whileTap={{ scale: 0.9 }}                
-                >
+            <div className="navbar-nav navbar-categories navbar-collapse">
+              <motion.div
+                whileTap={{ scale: 0.9 }}
+              >
                 <Link to="/men" className="navbar-categories-link">
                   Hombres
                 </Link>
@@ -79,7 +79,7 @@ function NavBar() {
               <motion.div
                 whileTap={{ scale: 0.9 }}>
                 <Link to="/cart">
-                  <box-icon name="cart"></box-icon>
+                  <box-icon name="cart"></box-icon>                  
                 </Link>
               </motion.div>
             </div>
@@ -91,4 +91,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavBar

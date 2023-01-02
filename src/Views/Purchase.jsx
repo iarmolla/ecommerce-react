@@ -3,7 +3,7 @@ import "../styles/purchase.css";
 
 function Purchase() {
   return (
-    <div className="container">
+    <div className="container-purchase">
       <div className="purchase">
         <img
           src="http://ali.edu.uy/img/icons/icon-check-green.svg"

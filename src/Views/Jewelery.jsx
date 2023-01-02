@@ -4,25 +4,20 @@ import Icons from "../components/Icons";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from '../components/Footer'
 
-function Jewelery() {
-  const [products, updateProducts] = useState();
-  const [spinner, updateSpinner] = useState(false);
+function Jewelery({ ...props }) {
   const [grid, updateGrid] = useState("container-products");
-
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/category/jewelery")
-      .then((res) => res.json())
-      .then((res) => {
-        updateSpinner(true);
-        updateProducts(res);
-      });
+    props.getJewelery()
   }, []);
+  let products = [0,1]
+  products = Object.values(props.jewelery)
+
   return (
     <div>
       <div>
         <h3 className="men-title">30% de descuento pagando en efectivo!</h3>
       </div>
-      {!spinner ? (
+      {products.length == 0 ? (
         <div className="spinner">
           <div className="spinner-border m-5" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -42,9 +37,10 @@ function Jewelery() {
           </div>
           <Footer></Footer>
         </div>
-      )}
+      )}     
+
     </div>
   );
 }
 
-export default Jewelery;
+export default Jewelery

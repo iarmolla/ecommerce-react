@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import createSagaMiddleware from 'redux-saga'
 import { configureStore } from '@reduxjs/toolkit'
-import getUsers from './sagas/sagas'
+import rootSaga from './sagas'
 import rootReducer from './reducers/index'
 import { Provider } from 'react-redux'
 
@@ -13,7 +13,7 @@ const store = configureStore({
     reducer:rootReducer,
     middleware:[sagaMiddleware]
 })
-sagaMiddleware.run(getUsers)
+sagaMiddleware.run(rootSaga)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import "../styles/productCard.css";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
+import { connect } from 'react-redux'
+import actions from '../actions/products'
 
-function ProductCard({ product }) {
+function ProductCard({product,addProduct}) {
   const notify = () => toast.success("Producto agregado al carrito");
   const productPrice = product.price * 300;
   const images = (number) => {
@@ -43,7 +45,10 @@ function ProductCard({ product }) {
             >
               Ver mas
             </Link>
-            <button className="m-1 card-button" onClick={notify}>
+            <button className="m-1 card-button" onClick={() => {
+              notify()
+              addProduct(product)
+            }}>
               Agregar al carrito
             </button>
           </div>
@@ -53,5 +58,9 @@ function ProductCard({ product }) {
     </>
   );
 }
-
-export default ProductCard;
+const mapDispatchToProps = dispatch => {
+  return {
+      addProduct: (product) => dispatch(actions.addProduct(product))
+  }
+}
+export default connect(null, mapDispatchToProps)(ProductCard)

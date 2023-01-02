@@ -1,24 +1,24 @@
 import React from 'react'
 import PrelandingView from '../Views/PrelandingView'
 import { connect } from 'react-redux'
-import getUsers from '../selectors/getUsers'
-import actions from '../actions/users'
+import getProducts from '../selectors/getProducts'
+import actions from '../actions/products'
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadUser: id => dispatch(actions.getUserFetch(id)),
+    allProducts: () => dispatch(actions.getProducts()),
   }
 }
 const mapStateToProps = state => {
     return {
-      users: getUsers(state)
+      products: getProducts(state)
     }
   }
 const PrelandingContainer = ({...props}) => {
   return (
     <PrelandingView       
-      loadUser={props.loadUser}
-      users={props.users}
+      loadProducts={props.allProducts}
+      getProducts={props.products}
     />
   )
 }
