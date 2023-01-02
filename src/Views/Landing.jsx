@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/landing.css'
 import { Link } from "react-router-dom";
 import Footer from '../components/Footer'
+import samsung from '../assets/samsung.jpg'
 
 function Landing() {
     return (
@@ -19,7 +20,7 @@ function Landing() {
                     </div>
                 </section>
                 <section>
-                    <img className='landing-image' src="https://images.samsung.com/is/image/samsung/assets/ar/2203/galaxy-a-series/02_Showroom_kv_asset_product.png?$ORIGIN_PNG$" alt="" />
+                    <img className='landing-image' src={samsung} alt="samsung" />
                 </section>
             </div>
             <Footer></Footer>

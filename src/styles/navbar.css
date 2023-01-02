@@ -37,6 +37,9 @@
   border-radius: 8px;
   display: none;
 }
+.cart-container {
+  color: #000;
+}
 @media (max-width: 990px) {
   .navbar-button {
     border: none;

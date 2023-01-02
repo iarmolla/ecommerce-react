@@ -7,25 +7,21 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import Footer from "../components/Footer";
 
-function ProductDescription() {
+function ProductDescription({ ...props }) {
   const params = useParams();
-  const [product, updateProduct] = useState();
-  const [spinner, updateSpinner] = useState();
   const [count, updateCount] = useState(1);
   const [image, updateImage] = useState("product-image");
   const notify = () => toast.success("Producto agregado al carrito");
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${params.id}`)
-      .then((res) => res.json())
-      .then((res) => {
-        updateProduct(res);
-        updateSpinner(res.title);
-      });
+    
   }, []);
-  const productPrice = product?.price * 300;
+  let products = [0, 1]
+  products = Object.values(props.getProduct)
+  let product = products.find(product => product.id == params.id)
+  const productPrice = product?.price * 350;
   return (
     <>
-      {!spinner ? (
+      {products.length == 0 ? (
         <div className="spinner">
           <div className="spinner-border m-5" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -60,7 +56,7 @@ function ProductDescription() {
                 }}
               />
             </div>
-            <div>              
+            <div>
               <img className={image} src={product?.image} alt="" />
             </div>
             <div className="card--">
@@ -99,19 +95,19 @@ function ProductDescription() {
                     <i
                       className="bi bi-dash"
                       onClick={() => {
-                        count > 1 ?updateCount(count - 1) : updateCount(count)
+                        count > 1 ? updateCount(count - 1) : updateCount(count)
                       }}
                     ></i>
                     <span>{count}</span>
                     <i
                       className="bi bi-plus-lg"
                       onClick={() => {
-                        count>= 1 ?updateCount(count + 1) : updateCount(count)
+                        count >= 1 ? updateCount(count + 1) : updateCount(count)
                       }}
                     ></i>
                   </div>
-                  <div className="card-buttons">              
-                    <Link to="/cart" className="card-link card-button w-100">Comprar</Link>                 
+                  <div className="card-buttons">
+                    <Link to="/cart" className="card-link card-button w-100">Comprar</Link>
                     <button
                       className="card-button card-button-- w-100"
                       onClick={notify}
@@ -130,13 +126,12 @@ function ProductDescription() {
               {product?.description}
             </p>
           </div>
-        <Footer></Footer>
-
+          <Footer></Footer>
         </div>
-        
       )}
     </>
   );
 }
 
-export default ProductDescription;
+
+export default ProductDescription

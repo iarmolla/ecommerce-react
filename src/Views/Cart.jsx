@@ -4,24 +4,26 @@ import { Link } from "react-router-dom";
 import ModalCart from "../components/ModalCart";
 import Footer from '../components/Footer'
 
-function Cart() {
-  const [product, updateProduct] = useState([]);
-  const [spinner, updateSpinner] = useState();
+function Cart({ ...props }) {
   const [modalShow, setModalShow] = useState(false);
+  const [total, setTotal] = useState([])
+  let product = [0, 1]
+  product = Object.values(props.getCart)
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => {
-        updateProduct(json);
-        updateSpinner(true);
-      });
-  }, []);
+    let aux = [0]
+    product.map((e) => {
+      aux.push(e.price*350)      
+    })
+    let total = aux.reduce((a, b) => a + b, 0);
+    setTotal(total)  
+  }, [])
   return (
     <>
-      {!spinner ? (
-        <div className="spinner">
-          <div className="spinner-border m-5" role="status">
-            <span className="visually-hidden">Loading...</span>
+      {product.length == 0 ? (
+        <div>
+          <div className="m-5 justify-content-center align-items-center d-flex flex-column">
+            <h1 className="table-title">Carrito de compras</h1>
+            <span className="text-justify">No hay productos en el carrito.</span>
           </div>
         </div>
       ) : (
@@ -52,11 +54,11 @@ function Cart() {
                     </td>
                     <td>
                       <div className="table-product-price">
-                        ${product.price * 300?.toLocaleString("es")}
+                        ${product.price * (350).toLocaleString("es")}
                       </div>
                     </td>
                     <td>
-                      <select className="form-select" name="" id="">
+                      <select className="form-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -75,6 +77,9 @@ function Cart() {
               })}
             </tbody>
           </table>
+          <div>
+            <h1 className="h3">Total: <span>${total}</span></h1>
+          </div>
           <Link to="/purchase" className="btn btn-primary">
             Finalizar compra
           </Link>
@@ -82,7 +87,7 @@ function Cart() {
             show={modalShow}
             onHide={() => setModalShow(false)}
           />
-        <Footer></Footer>
+          <Footer></Footer>
         </div>
       )}
     </>
