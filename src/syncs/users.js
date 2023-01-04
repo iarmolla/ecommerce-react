@@ -1,8 +1,9 @@
 import axios from 'axios'
 
-async function getUser(id) {
-    const request = axios.get(`https://fakestoreapi.com/users/${id}`)
-    return request
+async function getUsers() {
+    return axios.get('https://fakestoreapi.com/users')
 }
 
-export default getUser
+export default {
+    getUsers
+}
