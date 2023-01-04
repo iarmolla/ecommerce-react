@@ -1,15 +1,22 @@
-import actionTypes from '../actionTypes'
-
-const initialState = {}
-const saveUser = (state,action) => {
-  return {...state,values:action.values}
-}
+const initialState = {};
 
 export default function usersReducer(state = initialState, action) {
   switch (action.type) {
-    case actionTypes.GET_USER_SUCCESS:
-      return saveUser(state, action)
+    case "GET_USER_SUCCESS":
+      return {
+        ...state,
+        ...action.users,
+      };
+    case "LOGIN_USER":
+      let users = [0, 1]
+      users = Object.values(state)
+      users.map((user) => {
+        if (user.id == action.values.id) {
+          user.logged = action.values.logged;
+        }
+      });
+      return users
     default:
-      return state
+      return state;
   }
 }
