@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/navbar.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import logo from '../assets/logo.jpg'
 
 function NavBar({ ...props }) {
   const [user, setUser] = useState(false)
@@ -28,8 +29,8 @@ function NavBar({ ...props }) {
         <div className="container-fluid">
           <Link className="navbar-brand" to="">
             <img
-              src="https://static.vecteezy.com/system/resources/previews/007/794/728/non_2x/sneakers-shop-logo-design-shoes-store-sneaker-illustration-free-vector.jpg"
-              alt=""
+              src={logo}
+              alt="logo"
               className="logo"
             />
           </Link>

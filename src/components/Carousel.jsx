@@ -1,4 +1,7 @@
 import React from "react";
+import adidas from '../assets/adidas.jpg'
+import nike from '../assets/nike.jpg'
+import ropa from '../assets/ropa.jpg'
 
 function Carousel() {
   return (
@@ -32,13 +35,13 @@ function Carousel() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="https://images5.alphacoders.com/632/632664.jpg" className="d-block w-100" />            
+            <img src={nike} className="d-block w-100" alt="nike" />            
           </div>
           <div className="carousel-item">
-            <img src="https://cdn.shopify.com/s/files/1/0052/6503/1286/files/SLIDER-DESKTOP-FALL22_1440x.jpg?v=1662373059" className="d-block w-100" />            
+            <img src={ropa} className="d-block w-100" alt="ropa" />            
           </div>
           <div className="carousel-item">
-            <img src="https://media.revistagq.com/photos/6176b7b0e858877e3db833a4/16:9/w_2560%2Cc_limit/GettyImages-694617826.jpg" className="d-block w-100" alt="..." />
+            <img src={adidas} className="d-block w-100" alt="adidas" />
           </div>
         </div>
         <button

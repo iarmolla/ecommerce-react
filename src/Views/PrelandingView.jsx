@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "../styles/productCard.css";
 import "../styles/prelanding.css";
 import Footer from '../components/Footer'
+import airmax from '../assets/airmax.jpg'
 
 const PrelandingView = ({ ...props }) => {
   useEffect(() => {
@@ -29,8 +30,8 @@ const PrelandingView = ({ ...props }) => {
             </Link>
           </div>
           <img
-            src="https://media.revistagq.com/photos/617a5f36ad20b0acf7594c69/master/pass/nikeairmax2021.jpg"
-            alt=""
+            src={airmax}
+            alt="airmax"
             className="rounded container-img"
           />
         </section>
