@@ -11,7 +11,6 @@ function Jewelery({ ...props }) {
   }, []);
   let products = [0,1]
   products = Object.values(props.jewelery)
-
   return (
     <div>
       <div>

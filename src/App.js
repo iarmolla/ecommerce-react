@@ -13,6 +13,7 @@ import Women from "./containers/Women";
 import Techonology from "./containers/Technology";
 import Cart from "./containers/Cart";
 import Landing from "./Views/Landing";
+import Error from "./Views/Error";
 
 function Dashboard() {
   return (
@@ -45,6 +46,8 @@ function App() {
             ></Route>
             <Route path="/jewelery" element={<JeweleryContainer></JeweleryContainer>}></Route>
             <Route path="/purchase" element={<Purchase></Purchase>}></Route>
+          <Route path="*" element={<Error/>}></Route>
+
           </Route>
         </Routes>
       </BrowserRouter>

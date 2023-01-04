@@ -64,12 +64,20 @@ function getJewelerySuccess(values) {
   };
 }
 
-function addProduct(product) {
+function addProduct(product,count = 0) {
   return {
     type: "ADD_PRODUCT",
-    product
+    product,
+    count
   }
 }
+
+function deleteProduct(id) {
+  return {
+    type: "DELETE_PRODUCT",
+    id
+  }
+} 
 
 export default {
   getJewelery,
@@ -82,5 +90,6 @@ export default {
   getWomenSuccess,
   getTechnology,
   getTechnologySuccess,
-  addProduct
+  addProduct,
+  deleteProduct
 };

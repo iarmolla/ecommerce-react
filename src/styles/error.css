@@ -1,0 +1,29 @@
+.container-errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    gap: 1rem;
+}
+.container-error-text{
+    font-size: 8rem;
+}
+.container-link-error {
+    text-decoration: none;
+    border: none;
+    padding: .5rem;
+    border-radius: 8px;
+    transition: 300ms;
+    background-color: #bfdbfe;
+    color: #308bf9;
+}
+
+.container-paragraph-error,.container-error-text,.container-error {
+   color: rgb(107, 162, 230);
+
+}
+@media (min-width:990px) {
+    .container-errors {
+        padding-top: 10rem;
+    }
+}

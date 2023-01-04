@@ -7,15 +7,16 @@ import Footer from '../components/Footer'
 function Cart({ ...props }) {
   const [modalShow, setModalShow] = useState(false);
   const [total, setTotal] = useState([])
+  const [id, setId] = useState()
   let product = [0, 1]
   product = Object.values(props.getCart)
   useEffect(() => {
     let aux = [0]
     product.map((e) => {
-      aux.push(e.price*350)      
+      aux.push(e.price)
     })
     let total = aux.reduce((a, b) => a + b, 0);
-    setTotal(total)  
+    setTotal(total)
   }, [])
   return (
     <>
@@ -31,7 +32,7 @@ function Cart({ ...props }) {
           <h1 className="table-title">Carrito de compras</h1>
           <table>
             <thead>
-              <tr >
+              <tr>           
                 <th>Productos</th>
                 <th>Precio</th>
                 <th>Cantidad</th>
@@ -42,34 +43,43 @@ function Cart({ ...props }) {
               {product.map((product) => {
                 return (
                   <tr key={product.id}>
-                    <td>
+                    <td>                     
                       <div className="table-product">
                         <img
                           src={product?.image}
                           className="cart-image"
-                          alt=""
+                          alt={product.title}
                         />
                         <span className="table-product-title">{product?.title}</span>
                       </div>
                     </td>
                     <td>
                       <div className="table-product-price">
-                        ${product.price * (350).toLocaleString("es")}
+                        ${product.price.toLocaleString("es")}
                       </div>
                     </td>
                     <td>
                       <select className="form-select">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                        {
+                          product.repeated == 1 ? <option value="2">{product.repeated}</option> : <option value="2">{product.repeated}</option>
+                        }
                       </select>
                     </td>
                     <td>
                       <div className="table-product-price">
                         <box-icon name="x" onClick={() => {
                           setModalShow(true)
+                          setId(product.id)
                         }}></box-icon>
+                        <ModalCart
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                            deleteProduct={props.deleteProduct}
+                            product={id}
+                            price={product.price}
+                            total={total}
+                            setTotal={setTotal}
+                          />
                       </div>
                     </td>
                   </tr>
@@ -78,15 +88,12 @@ function Cart({ ...props }) {
             </tbody>
           </table>
           <div>
-            <h1 className="h3">Total: <span>${total}</span></h1>
+            <h1 className="h3">Total: <span>${total.toLocaleString("es")}</span></h1>
           </div>
           <Link to="/purchase" className="btn btn-primary">
             Finalizar compra
           </Link>
-          <ModalCart
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
+
           <Footer></Footer>
         </div>
       )}

@@ -29,14 +29,60 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
   }
+  .card-image {
+    min-width: auto;
+    width: 100%;
+  }
+  .card {
+    
+  }
 }
 @media (max-width: 1024px) {
   .container-products {
     display: grid;
     justify-content: center;
     align-items: center;
-    justify-items: center;
-    grid-template-columns: repeat(1, 800px);
     gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-products {
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .container-products {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .container-products {
+    grid-template-columns: repeat(2,1fr);
+    margin: 0 5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-products {
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+  }
+  .card {
+    max-height: 457px;
+    max-width: 800px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 1;
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 900px) {
+  .men-icons {
+    display: none;
   }
 }

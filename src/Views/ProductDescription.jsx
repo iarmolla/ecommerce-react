@@ -13,12 +13,11 @@ function ProductDescription({ ...props }) {
   const [image, updateImage] = useState("product-image");
   const notify = () => toast.success("Producto agregado al carrito");
   useEffect(() => {
-    
+
   }, []);
   let products = [0, 1]
   products = Object.values(props.getProduct)
   let product = products.find(product => product.id == params.id)
-  const productPrice = product?.price * 350;
   return (
     <>
       {products.length == 0 ? (
@@ -78,7 +77,7 @@ function ProductDescription({ ...props }) {
                   </div>
                   <div className="card-price">
                     <span className="price">
-                      ${productPrice.toLocaleString("es")}
+                      ${product.price.toLocaleString("es")}
                     </span>
                     <i className="bx bxs-truck"></i>
                     <span className="card-send">Llega gratis el sabado</span>
@@ -102,16 +101,22 @@ function ProductDescription({ ...props }) {
                     <i
                       className="bi bi-plus-lg"
                       onClick={() => {
-                        count >= 1 ? updateCount(count + 1) : updateCount(count)
+                        count >= 1 && count <= 2 ? updateCount(count + 1) : updateCount(count)
                       }}
                     ></i>
                   </div>
                   <div className="card-buttons">
-                    <Link to="/cart" className="card-link card-button w-100">Comprar</Link>
+                    <Link to="/cart" className="card-link card-button w-100" onClick={() => {
+                      props.addProduct(product)
+                    }}>Comprar</Link>
                     <button
                       className="card-button card-button-- w-100"
-                      onClick={notify}
-                    >
+                      onClick={() => {
+                        notify()                          
+                        console.log(count)
+                        props.addProduct(product,count)
+                        updateCount(1)
+                      }}>
                       Agregar al carrito
                     </button>
                     <Toaster position="top-center" reverseOrder={false} />

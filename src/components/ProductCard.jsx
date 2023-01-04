@@ -6,15 +6,10 @@ import { motion } from "framer-motion";
 import { connect } from 'react-redux'
 import actions from '../actions/products'
 
-function ProductCard({product,addProduct}) {
+function ProductCard({ product, addProduct }) {
   const notify = () => toast.success("Producto agregado al carrito");
-  const productPrice = product.price * 300;
   const images = (number) => {
-    if (number > 0) {
-      const image =
-        "https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/misc/stars-active.svg";
-      return image;
-    }
+    return "https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/misc/stars-active.svg";
   };
   return (
     <>
@@ -24,19 +19,19 @@ function ProductCard({product,addProduct}) {
         exit={{ opacity: 0 }}
         layout
       >
-        <img src={product.image} className="card-img-top card-image" alt="..." />
+        <img src={product.image} className="card-img-top card-image" alt={product.title} />
         <div className="card-body w-100">
           <div>
             <h5 className="card-text">{product.title}</h5>
           </div>
           <div className="card-section">
             <div className="card-section card-section--">
-              <img src={images(product.rating.rate)} className="stars-image" alt="" />
+              <img src={images(product.rating.rate)} className="stars-image" alt={product.rating.rate} />
               <span className="card-text--">{product.rating.rate}</span>
             </div>
           </div>
           <div className="card-price">
-            <p className="card-title">${productPrice.toLocaleString("es")}</p>
+            <p className="card-title">${product.price.toLocaleString("es")}</p>
           </div>
           <div>
             <Link
@@ -60,7 +55,7 @@ function ProductCard({product,addProduct}) {
 }
 const mapDispatchToProps = dispatch => {
   return {
-      addProduct: (product) => dispatch(actions.addProduct(product))
+    addProduct: (product) => dispatch(actions.addProduct(product))
   }
 }
 export default connect(null, mapDispatchToProps)(ProductCard)
