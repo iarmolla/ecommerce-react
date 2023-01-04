@@ -24,7 +24,7 @@ function Women({...props}) {
         </div>
       ) : (
         <div>
-          <Icons updateGrid={updateGrid}></Icons>
+          <Icons orderByPriceAscending={props.orderByPriceAscending} orderByPriceDescending={props.orderByPriceDescending} orderByName={props.orderByName} updateGrid={updateGrid}></Icons>
           <div className="mt-5 mb-5 product-description">
             <AnimatePresence>
               <motion.div layout className={grid}>

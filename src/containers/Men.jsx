@@ -6,7 +6,10 @@ import actions from '../actions/products'
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadMen: () => dispatch(actions.getMen()),       
+        loadMen: () => dispatch(actions.getMen()),
+        orderByPriceAscending: () => dispatch(actions.orderMenPriceAscending()),
+        orderByPriceDescending: () => dispatch(actions.orderMenPriceDescending()),
+        orderByName: () => dispatch(actions.orderMenName())
     }
 }
 const mapStateToProps = state => {
@@ -18,7 +21,10 @@ const JeweleryContainer = ({ ...props }) => {
     return (
         <Men
             loadMen={props.loadMen}
-            getMen={props.getMen}           
+            getMen={props.getMen}
+            orderByPriceAscending={props.orderByPriceAscending}
+            orderByPriceDescending={props.orderByPriceDescending}
+            orderByName={props.orderByName}
         />
     )
 }

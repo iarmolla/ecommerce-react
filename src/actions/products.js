@@ -1,4 +1,3 @@
-
 function getProducts() {
   return {
     type: "GET_PRODUCTS",
@@ -9,20 +8,56 @@ function getProductsSuccess(values) {
   return {
     type: "GET_PRODUCTS_SUCCESS",
     values,
-  }
+  };
 }
 
 function getMen() {
   return {
     type: "GET_MEN",
-  }
+  };
 }
 
 function getMenSuccess(values) {
   return {
     type: "GET_MEN_SUCCESS",
     values,
-  }
+  };
+}
+
+function orderMenPriceAscending() {
+  return {
+    type: "ORDER_MEN_PRICE_ASCENDING",
+  };
+}
+
+function orderMenPriceDescending() {
+  return {
+    type: "ORDER_MEN_PRICE_DESCENDING",
+  };
+}
+
+function orderMenName() {
+  return {
+    type: "ORDER_MEN_NAME",
+  };
+}
+
+function orderWomenPriceAscending() {
+  return {
+    type: "ORDER_WOMEN_PRICE_ASCENDING",
+  };
+}
+
+function orderWomenPriceDescending() {
+  return {
+    type: "ORDER_WOMEN_PRICE_DESCENDING",
+  };
+}
+
+function orderWomenName() {
+  return {
+    type: "ORDER_WOMEN_NAME",
+  };
 }
 
 function getJewelery() {
@@ -37,10 +72,29 @@ function getWomen() {
   };
 }
 
+
 function getWomenSuccess(values) {
   return {
     type: "GET_WOMEN_SUCCESS",
     values,
+  };
+}
+
+function orderTechnologyPriceAscending() {
+  return {
+    type: "ORDER_TECHNOLOGY_PRICE_ASCENDING",
+  };
+}
+
+function orderTechnologyPriceDescending() {
+  return {
+    type: "ORDER_TECHNOLOGY_PRICE_DESCENDING",
+  };
+}
+
+function orderTechnologyName() {
+  return {
+    type: "ORDER_TECHNOLOGY_NAME",
   };
 }
 
@@ -53,7 +107,7 @@ function getTechnology() {
 function getTechnologySuccess(values) {
   return {
     type: "GET_TECHNOLOGY_SUCCESS",
-    values
+    values,
   };
 }
 
@@ -64,20 +118,39 @@ function getJewelerySuccess(values) {
   };
 }
 
-function addProduct(product,count = 0) {
+function orderJeweleryPriceAscending() {
+  return {
+    type: "ORDER_JEWELERY_PRICE_ASCENDING",
+  };
+}
+
+function orderJeweleryPriceDescending() {
+  return {
+    type: "ORDER_JEWELERY_PRICE_DESCENDING",
+  };
+}
+
+function orderJeweleryName() {
+  return {
+    type: "ORDER_JEWELERY_NAME",
+  };
+}
+
+
+function addProduct(product, count = 0) {
   return {
     type: "ADD_PRODUCT",
     product,
-    count
-  }
+    count,
+  };
 }
 
 function deleteProduct(id) {
   return {
     type: "DELETE_PRODUCT",
-    id
-  }
-} 
+    id,
+  };
+}
 
 export default {
   getJewelery,
@@ -91,5 +164,17 @@ export default {
   getTechnology,
   getTechnologySuccess,
   addProduct,
-  deleteProduct
+  deleteProduct,
+  orderMenPriceAscending,
+  orderMenPriceDescending,
+  orderMenName,
+  orderWomenName,
+  orderWomenPriceAscending,
+  orderWomenPriceDescending,
+  orderTechnologyName,
+  orderTechnologyPriceAscending,
+  orderTechnologyPriceDescending,
+  orderJeweleryName,
+  orderJeweleryPriceAscending,
+  orderJeweleryPriceDescending
 };

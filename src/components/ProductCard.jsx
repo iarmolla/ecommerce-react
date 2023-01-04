@@ -8,7 +8,7 @@ import actions from '../actions/products'
 
 function ProductCard({ product, addProduct }) {
   const notify = () => toast.success("Producto agregado al carrito");
-  const images = (number) => {
+  const images = () => {
     return "https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/misc/stars-active.svg";
   };
   return (
@@ -26,7 +26,7 @@ function ProductCard({ product, addProduct }) {
           </div>
           <div className="card-section">
             <div className="card-section card-section--">
-              <img src={images(product.rating.rate)} className="stars-image" alt={product.rating.rate} />
+              <img src={images()} className="stars-image" alt={product.rating.rate} />
               <span className="card-text--">{product.rating.rate}</span>
             </div>
           </div>

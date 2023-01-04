@@ -6,7 +6,10 @@ import Technology from '../Views/Technology'
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadTechnology: () => dispatch(actions.getTechnology())
+        loadTechnology: () => dispatch(actions.getTechnology()),
+        orderByPriceAscending: () => dispatch(actions.orderTechnologyPriceAscending()),
+        orderByPriceDescending: () => dispatch(actions.orderTechnologyPriceDescending()),
+        orderByName: () => dispatch(actions.orderTechnologyName())
     }
 }
 const mapStateToProps = state => {
@@ -19,6 +22,9 @@ const loadTechnologyContainer = ({ ...props }) => {
         <Technology
             loadTechnology={props.loadTechnology}
             getTechnology={props.getTechnology}
+            orderByPriceAscending={props.orderByPriceAscending}
+            orderByPriceDescending={props.orderByPriceDescending}
+            orderByName={props.orderByName}
         />
     )
 }

@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Icons.css";
 import { motion } from "framer-motion";
 
-function Icons({ updateGrid }) {
+function Icons({ updateGrid, orderByPriceAscending, orderByPriceDescending, orderByName }) {
   return (
     <div>
       <div className="men-icons">
@@ -17,13 +17,15 @@ function Icons({ updateGrid }) {
           </button>
           <ul className="dropdown-menu">
             <li>
-              <span className="dropdown-item">Nombre</span>
+              <span className="dropdown-item" onClick={() => orderByName()}>Nombre</span>
             </li>
             <li>
-              <span className="dropdown-item">Precio ascendente</span>
+              <span className="dropdown-item" onClick={() => {
+                orderByPriceAscending()
+              }}>Precio ascendente</span>
             </li>
             <li>
-              <span className="dropdown-item">Precio descendente</span>
+              <span className="dropdown-item" onClick={() => orderByPriceDescending()}>Precio descendente</span>
             </li>
           </ul>
         </div>
