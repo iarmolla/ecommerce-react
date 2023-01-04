@@ -1,9 +1,10 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "boxicons";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import Login from "./Views/Login";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Outlet, redirect } from "react-router-dom";
+import NavBar from "./containers/NavBar";
+import Login from "./containers/Login";
 import JeweleryContainer from "./containers/Jewelery";
 import Purchase from "./Views/Purchase";
 import Prelanding from "./containers/Prelanding";
@@ -25,13 +26,18 @@ function Dashboard() {
 }
 
 function App() {
+  const [user, setUser] = useState();
+  useEffect(() => {
+    let aux = window.localStorage.getItem("loggedUser");
+    setUser(JSON.parse(aux))
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/landing" element={<Landing />}></Route>
           <Route path="" element={<Dashboard></Dashboard>}>
-            <Route path="/login" element={<Login></Login>}></Route>
+            <Route path={ user ? "" : "/login"} element={user ? <Prelanding></Prelanding> : <Login/>}></Route>
             <Route path="" element={<Prelanding></Prelanding>}></Route>
             <Route
               path="/description/:id"
@@ -44,10 +50,12 @@ function App() {
               path="/electronics"
               element={<Techonology></Techonology>}
             ></Route>
-            <Route path="/jewelery" element={<JeweleryContainer></JeweleryContainer>}></Route>
+            <Route
+              path="/jewelery"
+              element={<JeweleryContainer></JeweleryContainer>}
+            ></Route>
             <Route path="/purchase" element={<Purchase></Purchase>}></Route>
-          <Route path="*" element={<Error/>}></Route>
-
+            <Route path="*" element={<Error />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
