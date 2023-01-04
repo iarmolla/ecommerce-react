@@ -6,12 +6,12 @@ export default function products(state = initialState, action) {
       let validation = false;
       state.map((product) => {
         if (product.id == action.product.id) {
-          product.repeated = product.repeated + 1;          
+          product.repeated = product.repeated + 1;
           product.price += product.originalPrice;
-          validation = true;         
-          if (action.count > 1) {
-            if (action.count == 2) {
-              product.repeated = product.repeated + action.count -1;
+          validation = true;        
+          if (action.count > 1) {          
+            if (action.count >= 2) {              
+              product.repeated = product.repeated + action.count - 1;
             } else {
               product.repeated = product.repeated + action.count - 1;
             }
@@ -20,6 +20,7 @@ export default function products(state = initialState, action) {
         }
       });
       if (!validation) {
+        action.product.repeated = action.product.repeated + action.count - 1;
         state.push(action.product);
       }
     case "DELETE_PRODUCT":
