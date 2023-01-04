@@ -8,6 +8,7 @@ import actions from '../actions/products'
 import stars from '../assets/stars.svg'
 
 function ProductCard({ product, addProduct }) {
+  const [count, updateCount] = useState(1);
   const notify = () => toast.success("Producto agregado al carrito");
   const images = () => {
     return stars;
@@ -42,8 +43,8 @@ function ProductCard({ product, addProduct }) {
               Ver mas
             </Link>
             <button className="m-1 card-button" onClick={() => {
-              notify()
-              addProduct(product)
+              notify()              
+              addProduct(product,count)
             }}>
               Agregar al carrito
             </button>

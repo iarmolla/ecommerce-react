@@ -114,7 +114,7 @@ function ProductDescription({ ...props }) {
                   </div>
                   <div className="card-buttons">
                     <Link to="/cart" className="card-link card-button w-100" onClick={() => {
-                      props.addProduct(product)
+                      props.addProduct(product,count)
                     }}>Comprar</Link>
                     <button
                       className="card-button card-button-- w-100"
