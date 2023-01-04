@@ -1,85 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;1,700&display=swap");
 
 .landing {
-    font-family: 'Nunito', sans-serif;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
+  font-family: "Nunito", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
 }
 
-.landing-section{
-    width: 40%;
+.landing-section {
+  width: 40%;
 }
 .landing-title {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 .landing-image {
-    margin-top: 5rem;
-    width: 100%;
-    object-fit: cover;
+  margin-top: 5rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.landing-image {
+    animation: landing 3s linear infinite;
+}
+
+@keyframes landing {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 .landing-text {
-    color: #6e6e73;
-    font-size: 1.8rem;
+  color: #6e6e73;
+  font-size: 1.8rem;
 }
 
 .landing-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
 }
 
-.landing-button{
-    outline: none;
-    text-decoration: none;
-    border-radius: .6rem;
-    color: #fff;
-    background-color: #1b7cdc;;
+.landing-button {
+  outline: none;
+  text-decoration: none;
+  border-radius: 0.6rem;
+  color: #fff;
+  background-color: #1b7cdc;
 }
-.landing-button:hover{
-    color: #fff;
+.landing-button:hover {
+  color: #fff;
 }
 .landing-link {
-    color: #191919;
-    outline: none;
-    text-decoration: none;
+  color: #191919;
+  outline: none;
+  text-decoration: none;
 }
-.landing-links{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.landing-links {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media (max-width: 640px) {
-    .landing-image {
-        display: none;
-    }
-    .landing {
-        gap: 0;
-        margin: 2rem;
-    }
-    .landing-section{
-        width: 100%;
-    }
+  .landing-image {
+    display: none;
+  }
+  .landing {
+    gap: 0;
+    margin: 2rem;
+  }
+  .landing-section {
+    width: 100%;
+  }
 }
 @media (min-width: 640px) {
-    .landing-section{
-        width: 100%;
-    }
-    .landing-image {
-        width: 100%;
-        height: 100%;
-    }
-    .landing {
-        gap: 0;
-        margin: 2rem;
-    }
+  .landing-section {
+    width: 100%;
+  }
+  .landing-image {
+    width: 100%;
+    height: 100%;
+  }
+  .landing {
+    gap: 0;
+    margin: 2rem;
+  }
 }
 @media (min-width: 768px) {
-    .landing{
-        margin: 0 6rem;
-    }
+  .landing {
+    margin: 0 6rem;
+  }
 }
