@@ -1,27 +1,32 @@
-import actionTypes from '../actionTypes'
-
-function getProductsFetch(values) {
+function loginUser(values) {
   return {
-    type: actionTypes.GET_PRODUCTS,
+    type: 'LOGIN_USER',
+    values,
+  }
+}
+function loginUserSuccess(values) {
+  return {
+    type: 'LOGIN_USER_SUCCESS',
     values,
   }
 }
 
-function getUserFetch(values) {
+function getUsers() {
   return {
-    type: actionTypes.GET_USER,
-    values,
+    type:'GET_USERS',
   }
 }
-function getUserFetchSuccess(values) {
+
+function getUsersSuccess(users) {
   return {
-    type: actionTypes.GET_USER_SUCCESS,
-    values,
+    type: 'GET_USER_SUCCESS',
+    users
   }
 }
 
 export default {
-  getProductsFetch,
-  getUserFetch,
-  getUserFetchSuccess
+  loginUser,
+  loginUserSuccess,
+  getUsers,
+  getUsersSuccess
 }
