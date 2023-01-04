@@ -31,7 +31,7 @@ function ProductCard({ product, addProduct }) {
             </div>
           </div>
           <div className="card-price">
-            <p className="card-title">${product.price.toLocaleString("es")}</p>
+            <p className="card-title">${product.originalPrice.toLocaleString("es")}</p>
           </div>
           <div>
             <Link

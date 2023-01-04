@@ -77,7 +77,7 @@ function ProductDescription({ ...props }) {
                   </div>
                   <div className="card-price">
                     <span className="price">
-                      ${product.price.toLocaleString("es")}
+                      ${product.originalPrice.toLocaleString("es")}
                     </span>
                     <i className="bx bxs-truck"></i>
                     <span className="card-send">Llega gratis el sabado</span>
@@ -112,8 +112,7 @@ function ProductDescription({ ...props }) {
                     <button
                       className="card-button card-button-- w-100"
                       onClick={() => {
-                        notify()                          
-                        console.log(count)
+                        notify()                         
                         props.addProduct(product,count)
                         updateCount(1)
                       }}>

@@ -3,15 +3,14 @@ import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import '../styles/form.css'
 import Footer from '../components/Footer'
+import { useNavigate } from "react-router-dom";
 
-function Login() {
-  const [user, updateUser] = useState();
-  const [navigate, updateNavigate] = useState(false)
+function Login({ ...props }) {
+  const [userError, updateUserError] = useState('');
   useEffect(() => {
-    fetch("https://fakestoreapi.com/users")
-      .then((res) => res.json())
-      .then((json) => updateUser(json));
+    props.loadUsers()
   }, [])
+  const navigate = useNavigate("/");
   return (
     <>
       <div className="login m-5">
@@ -19,21 +18,33 @@ function Login() {
           initialValues={{ email: "", password: "" }}
           validate={(values) => {
             const errors = {};
+            if (!values.password) {
+              errors.password = "*Completar campo*"
+            }
             if (!values.email) {
-              errors.email = "Falta el campo email";
+              errors.email = "*Completar campo*";
             } else if (
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
             ) {
-              errors.email = "No corresponde a una direccion de email";
+              errors.email = "*No corresponde a una direccion de email*";
             }
             return errors;
           }}
           onSubmit={(values) => {
-            user.map((element) => {
+            let users = [0, 1]
+            users = Object.values(props.getUsers)
+            users.map((element) => {
               if (values.email == element.email && values.password == element.password) {
-                updateNavigate(true)
+                values.id = element.id
+                values.logged = true
+                props.loginUser(values)
+                navigate('/')
+                window.localStorage.setItem(
+                  "loggedUser",JSON.stringify(values)
+                )
               }
             })
+            updateUserError('El email o la contraseña es incorrecta')
           }}
         >
           {({
@@ -41,13 +52,9 @@ function Login() {
             errors,
             handleChange,
             handleSubmit,
-            isSubmitting,
           }) => (
             <form method="POST" className="form" onSubmit={handleSubmit}>
               <h1 className="form-title">Iniciar sesion</h1>
-              <div className="form-link">
-                <span>¿No tienes una cuenta? <Link>Entra aqui</Link></span>
-              </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">
                   Email
@@ -60,6 +67,7 @@ function Login() {
                   className="form-control form-control--"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
+                  autoComplete="off"
                 />
                 <div id="emailHelp" className="form-text">
                   <span className="form-errors">{errors.email}</span>
@@ -77,29 +85,19 @@ function Login() {
                   className="form-control"
                   id="exampleInputPassword1"
                 />
-                <div id="emailHelp" className="form-text">
-                  {errors.password}
+                <div className="form-text">
+                  <span className="form-errors">{errors.password}</span>
                 </div>
               </div>
-
-              <div className="mb-3 form-checkout">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="exampleCheck1"
-                />
-                <label className="form-check-label" htmlFor="exampleCheck1">
-                  Recuerdame
-                </label>
-              </div>
-
               <button
                 className="btn btn-primary form-submit"
                 type="submit"
-                disabled={isSubmitting}
               >
                 Aceptar
               </button>
+              <div className="form-text">
+                <span className="form-errors">{userError}</span>
+              </div>
             </form>
           )}
         </Formik>

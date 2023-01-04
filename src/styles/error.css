@@ -1,29 +1,34 @@
-.container-errors {
+.container-errors-- {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;   
     gap: 1rem;
 }
-.container-error-text{
+.container-error--{
     font-size: 8rem;
 }
-.container-link-error {
+.container-link-- {
     text-decoration: none;
     border: none;
     padding: .5rem;
     border-radius: 8px;
     transition: 300ms;
     background-color: #bfdbfe;
-    color: #308bf9;
 }
-
-.container-paragraph-error,.container-error-text,.container-error {
-   color: rgb(107, 162, 230);
-
+@media (min-width: 320px) {
+    .container-errors-- {        
+        padding: 0rem 1rem;
+        margin-bottom: 1rem;
+    }
 }
-@media (min-width:990px) {
-    .container-errors {
-        padding-top: 10rem;
+@media (min-width: 768px) {
+    .container-errors-- {        
+        padding: 3rem 1rem;
+    }
+}
+@media (min-width:992px) {
+    .container-errors-- {
+        padding-top: 8rem;
     }
 }

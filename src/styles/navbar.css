@@ -10,7 +10,7 @@
 .navbar-icons {
   display: flex;
   gap: 0.5rem;
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
 }
 .navbar-categories-link {
   outline: none;
@@ -55,6 +55,8 @@
   .navbar-icons-- {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: .5rem;
   }
   .navbar-items {
     flex-direction: column;
