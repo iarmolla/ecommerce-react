@@ -21,7 +21,7 @@
 .card-section {
   display: flex;
   flex-direction: column;
-  place-items: center;
+  /* place-items: center; */
   place-content: center;
   align-items: baseline;
 }
