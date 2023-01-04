@@ -13,7 +13,13 @@ function ProductDescription({ ...props }) {
   const [image, updateImage] = useState("product-image");
   const notify = () => toast.success("Producto agregado al carrito");
   useEffect(() => {
-
+    const element = document.getElementById('container-product')
+    element?.scrollIntoView()
+    let products = [0, 1]
+    products = Object.values(props.getProduct)
+    if(products.length<=0) {     
+      props.loadProducts()
+    }
   }, []);
   let products = [0, 1]
   products = Object.values(props.getProduct)
@@ -28,7 +34,7 @@ function ProductDescription({ ...props }) {
         </div>
       ) : (
         <div>
-          <div className="container-product">
+          <div className="container-product" id="container-product">
             <div className="card-carousel">
               <img
                 src={product?.image}
@@ -112,8 +118,8 @@ function ProductDescription({ ...props }) {
                     <button
                       className="card-button card-button-- w-100"
                       onClick={() => {
-                        notify()                         
-                        props.addProduct(product,count)
+                        notify()
+                        props.addProduct(product, count)
                         updateCount(1)
                       }}>
                       Agregar al carrito

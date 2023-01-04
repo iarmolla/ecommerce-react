@@ -11,14 +11,16 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        addProduct: (product,count) => dispatch(actions.addProduct(product,count))
+        addProduct: (product, count) => dispatch(actions.addProduct(product, count)),
+        allProducts: () => dispatch(actions.getProducts()),
     }
 }
 const DescriptionContainer = ({ ...props }) => {
     return (
-        <ProductDescription           
+        <ProductDescription
             getProduct={props.getProducts}
             addProduct={props.addProduct}
+            loadProducts={props.allProducts}
         />
     )
 }
