@@ -47,7 +47,13 @@ function ProductCard({ product, addProduct }) {
               Agregar al carrito
             </button>
           </div>
-          <Toaster position="top-center" reverseOrder={false} />
+          <Toaster position="top-center" reverseOrder={false} toastOptions={{
+            style: {              
+              boxShadow:'none',
+              border:'1px solid rgba(0, 0, 0, 0.175)'
+            },
+          }}
+          />
         </div>
       </motion.div>
     </>
