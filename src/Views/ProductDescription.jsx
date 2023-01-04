@@ -6,6 +6,7 @@ import '../styles/productDescription.css'
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import Footer from "../components/Footer";
+import stars from '../assets/stars.svg'
 
 function ProductDescription({ ...props }) {
   const params = useParams();
@@ -74,8 +75,8 @@ function ProductDescription({ ...props }) {
                   <div className="card-stars">
                     <img
                       className="stars-image"
-                      src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/misc/stars-active.svg"
-                      alt=""
+                      src={stars}
+                      alt="stars"
                     />
                     <span className="card-text-rate">
                       {product.rating.rate}

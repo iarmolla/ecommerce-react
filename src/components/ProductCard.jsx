@@ -5,11 +5,12 @@ import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
 import { connect } from 'react-redux'
 import actions from '../actions/products'
+import stars from '../assets/stars.svg'
 
 function ProductCard({ product, addProduct }) {
   const notify = () => toast.success("Producto agregado al carrito");
   const images = () => {
-    return "https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/misc/stars-active.svg";
+    return stars;
   };
   return (
     <>
