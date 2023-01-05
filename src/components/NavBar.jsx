@@ -27,7 +27,7 @@ function NavBar({ ...props }) {
     <>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="">
+          <Link className="navbar-brand" to="/landing">
             <img
               src={logo}
               alt="logo"
