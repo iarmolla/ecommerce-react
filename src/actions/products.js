@@ -144,7 +144,11 @@ function addProduct(product, count = 0) {
     count,
   };
 }
-
+function purchasedProducts() {
+  return {
+    type: "PURCHASED_PRODUCTS",
+  };
+}
 function deleteProduct(id) {
   return {
     type: "DELETE_PRODUCT",
@@ -164,6 +168,7 @@ export default {
   getTechnology,
   getTechnologySuccess,
   addProduct,
+  purchasedProducts,
   deleteProduct,
   orderMenPriceAscending,
   orderMenPriceDescending,

@@ -8,9 +8,9 @@ export default function products(state = initialState, action) {
         if (product.id == action.product.id) {
           product.repeated = product.repeated + 1;
           product.price += product.originalPrice;
-          validation = true;        
-          if (action.count > 1) {          
-            if (action.count >= 2) {              
+          validation = true;
+          if (action.count > 1) {
+            if (action.count >= 2) {
               product.repeated = product.repeated + action.count - 1;
             } else {
               product.repeated = product.repeated + action.count - 1;
@@ -27,6 +27,9 @@ export default function products(state = initialState, action) {
       return state.filter((element) => {
         return element.id != action.id;
       });
+    case "PURCHASED_PRODUCTS":
+      return state = []
+      
     default:
       return state;
   }
