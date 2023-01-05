@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "../styles/productCard.css";
 import "../styles/prelanding.css";
 import Footer from '../components/Footer'
-import airmax from '../assets/airmax.jpg'
+import airmax from '../assets/shoes.png'
 
 const PrelandingView = ({ ...props }) => {
   useEffect(() => {
@@ -20,7 +20,7 @@ const PrelandingView = ({ ...props }) => {
       </div>
       <main className="text-dark m-5">
         <Carousel></Carousel>
-        <section className="container shoes">
+        <section className="container shoes container-shoes">
           <div className="row justify-content-center align-items-center p-5">
             <h1 className="container-title">
               Mejores marcas en zapatillas ropa accesorios y pc
@@ -32,7 +32,7 @@ const PrelandingView = ({ ...props }) => {
           <img
             src={airmax}
             alt="airmax"
-            className="rounded container-img"
+            className="rounded container-img container-image-animate"
           />
         </section>
       </main>
