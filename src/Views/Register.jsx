@@ -4,10 +4,10 @@ import '../styles/form.css'
 import Footer from '../components/Footer'
 import { Link, useNavigate } from "react-router-dom";
 
-function Login({ ...props }) {
+function Register({ ...props }) {
   const [userError, updateUserError] = useState('');
   useEffect(() => {
-    props.loadUsers()
+
   }, [])
   const navigate = useNavigate("/");
   return (
@@ -30,20 +30,7 @@ function Login({ ...props }) {
             return errors;
           }}
           onSubmit={(values) => {
-            let users = [0, 1]
-            users = Object.values(props.getUsers)
-            users.map((element) => {
-              if (values.email == element.email && values.password == element.password) {
-                values.id = element.id
-                values.logged = true
-                props.loginUser(values)
-                navigate('/')
-                window.localStorage.setItem(
-                  "loggedUser", JSON.stringify(values)
-                )
-              }
-            })
-            updateUserError('El email o la contraseña es incorrecta')
+           
           }}
         >
           {({
@@ -53,9 +40,9 @@ function Login({ ...props }) {
             handleSubmit,
           }) => (
             <form method="POST" className="form" onSubmit={handleSubmit}>
-              <h1 className="form-title">Iniciar sesion</h1>
+              <h1 className="form-title">Registrarse</h1>
               <div className="form-link">
-                <span>¿No tienes una cuenta? <Link to="/register">Entra aqui</Link></span>
+                <span>¿Tienes una cuenta? <Link to="/register">Entra aqui</Link></span>
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">
@@ -90,6 +77,20 @@ function Login({ ...props }) {
                 <div className="form-text">
                   <span className={`${errors.password ? 'form-errors' : 'form-errors-hidden'}`}>{errors.password}</span>
                 </div>
+                <label htmlFor="exampleInputPassword1" className="form-label">
+                  Repetir contraseña
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  value={values.password}
+                  onChange={handleChange}
+                  className="form-control"
+                  id="exampleInputPassword1"
+                />
+                <div className="form-text">
+                  <span className={`${errors.password ? 'form-errors' : 'form-errors-hidden'}`}>{errors.password}</span>
+                </div>
               </div>
               <button
                 className="btn btn-primary form-submit"
@@ -110,4 +111,4 @@ function Login({ ...props }) {
   );
 }
 
-export default Login;
+export default Register;

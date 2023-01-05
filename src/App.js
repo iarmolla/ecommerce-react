@@ -15,6 +15,7 @@ import Techonology from "./containers/Technology";
 import Cart from "./containers/Cart";
 import Landing from "./Views/Landing";
 import Error from "./Views/Error";
+import Register from "./Views/Register";
 
 function Dashboard() {
   return (
@@ -46,6 +47,7 @@ function App() {
             <Route path="/cart" element={<Cart></Cart>}></Route>
             <Route path="/men" element={<Men></Men>}></Route>
             <Route path="/women" element={<Women></Women>}></Route>
+            <Route path="/register" element={<Register></Register>}></Route>
             <Route
               path="/electronics"
               element={<Techonology></Techonology>}

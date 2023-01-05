@@ -8,14 +8,16 @@ export default function usersReducer(state = initialState, action) {
         ...action.users,
       };
     case "LOGIN_USER":
-      let users = [0, 1]
-      users = Object.values(state)
+      let users = [0, 1];
+      users = Object.values(state);
       users.map((user) => {
         if (user.id == action.values.id) {
           user.logged = action.values.logged;
         }
       });
-      return users
+      return users;
+    case "CREATE_USER":
+      state.push(action.user);
     default:
       return state;
   }
