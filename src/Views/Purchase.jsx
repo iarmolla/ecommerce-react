@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from "react";
 import "../styles/purchase.css";
+import check from '../assets/check.svg'
+import { useNavigate } from "react-router-dom";
 
 function Purchase() {
+  const navigate = useNavigate()
   return (
-    <div className="container-purchase">
+    <div className="container-purchase" onLoad={()=> {
+      // setTimeout(()=> {
+      //   navigate("/")
+      // },3000)
+    }}>
       <div className="purchase">
         <img
-          src="http://ali.edu.uy/img/icons/icon-check-green.svg"
+          src={check}
           className="container-check"
-          alt=""
+          alt="check"
         />
         <h1>Gracias por tu compra!</h1>
         <p className="purchase-text">
-          En breve recibiras un mail con la factura
+          En breve recibiras un mail con la factura          
         </p>
         <div className="purchase-spinner m-0">
           <div className="spinner-border p-1" role="status">
             <span className="visually-hidden">Loading...</span>
-          </div>
-          <div>
-            <span>
-              En 5 segundos volveras al inicio
-            </span>
-          </div>
+          </div>         
         </div>
       </div>
     </div>

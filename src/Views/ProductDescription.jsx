@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "../styles/productDescription.css";
 import toast, { Toaster } from "react-hot-toast";
 import '../styles/productDescription.css'
-import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import Footer from "../components/Footer";
 import stars from '../assets/stars.svg'
@@ -46,7 +44,7 @@ function ProductDescription({ ...props }) {
                 onClick={(e) => {
                   updateImage(e.target.name);
                   setModalShow(true)
-                  
+
                 }}
               />
               <img
@@ -66,19 +64,17 @@ function ProductDescription({ ...props }) {
                 onClick={(e) => {
                   updateImage(e.target.name);
                   setModalShow(true)
-
                 }}
               />
               <ModalImage
                 show={modalShow}
                 image={product.image}
-                classProduct={image}
-                updateImage={updateImage}
+                names={image}
                 onHide={() => setModalShow(false)}
               />
             </div>
             <div>
-              <img className={image} src={product?.image} alt="" onClick={()=>setModalShow(true)}/>
+              <img className={image} src={product?.image} alt="product" onClick={() => setModalShow(true)} />
             </div>
             <div className="card--">
               <div className="card-body">

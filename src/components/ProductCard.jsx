@@ -24,7 +24,7 @@ function ProductCard({ product, addProduct }) {
         exit={{ opacity: 0 }}
         layout
       >
-        <img src={product.image} className="card-img-top card-image" alt={product.title} onClick={()=> {
+        <img src={product.image} className="card-img-top card-image" alt={product.title} onClick={() => {
           setModalShow(true)
           setImage(product.image)
         }} />
@@ -38,22 +38,22 @@ function ProductCard({ product, addProduct }) {
               <span className="card-text--">{product.rating.rate}</span>
             </div>
           </div>
-          <ModalImage          
+          <ModalImage
             show={modalShow}
             image={image}
-            onHide={() => setModalShow(false)}            
+            onHide={() => setModalShow(false)}
           />
           <div className="card-price">
             <p className="card-title">${product.originalPrice.toLocaleString("es")}</p>
           </div>
-          <div>
+          <div className="card-links">
             <Link
               to={`/description/${product.id}`}
               className="card-button card-button--"
             >
               Ver mas
             </Link>
-            <button className="m-1 card-button" onClick={() => {
+            <button className="card-button" onClick={() => {
               notify()
               addProduct(product, count)
             }}>
@@ -74,7 +74,7 @@ function ProductCard({ product, addProduct }) {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    addProduct: (product,count) => dispatch(actions.addProduct(product,count))
+    addProduct: (product, count) => dispatch(actions.addProduct(product, count))
   }
 }
 export default connect(null, mapDispatchToProps)(ProductCard)

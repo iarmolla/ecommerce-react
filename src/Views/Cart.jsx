@@ -74,11 +74,11 @@ function Cart({ ...props }) {
                         <ModalCart
                             show={modalShow}
                             onHide={() => setModalShow(false)}
-                            deleteProduct={props.deleteProduct}
+                            delete={props.deleteProduct}
                             product={id}
                             price={product.price}
                             total={total}
-                            setTotal={setTotal}
+                            set={setTotal}
                           />
                       </div>
                     </td>
@@ -93,7 +93,6 @@ function Cart({ ...props }) {
           <Link to="/purchase" className="btn btn-primary">
             Finalizar compra
           </Link>
-
           <Footer></Footer>
         </div>
       )}

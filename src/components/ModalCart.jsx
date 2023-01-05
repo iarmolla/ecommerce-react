@@ -21,8 +21,8 @@ function ModalCart({ ...props }) {
         <Modal.Footer>
           <Button onClick={() => {
             props.onHide()           
-            props?.deleteProduct(props.product)            
-            props.setTotal(props.total -= props.price)           
+            props.delete(props.product)            
+            props.set(props.total -= props.price)           
           }} className="btn btn-danger">Eliminar</Button>
           <Button onClick={props.onHide}>Cerrar</Button>
         </Modal.Footer>
