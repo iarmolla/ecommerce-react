@@ -6,10 +6,13 @@ import { motion } from "framer-motion";
 import { connect } from 'react-redux'
 import actions from '../actions/products'
 import stars from '../assets/stars.svg'
+import ModalImage from '../components/ModaImage'
 
 function ProductCard({ product, addProduct }) {
   const [count, updateCount] = useState(1);
+  const [image, setImage] = useState(null)
   const notify = () => toast.success("Producto agregado al carrito");
+  const [modalShow, setModalShow] = useState(false);
   const images = () => {
     return stars;
   };
@@ -21,7 +24,10 @@ function ProductCard({ product, addProduct }) {
         exit={{ opacity: 0 }}
         layout
       >
-        <img src={product.image} className="card-img-top card-image" alt={product.title} />
+        <img src={product.image} className="card-img-top card-image" alt={product.title} onClick={()=> {
+          setModalShow(true)
+          setImage(product.image)
+        }} />
         <div className="card-body w-100">
           <div>
             <h5 className="card-text">{product.title}</h5>
@@ -32,6 +38,11 @@ function ProductCard({ product, addProduct }) {
               <span className="card-text--">{product.rating.rate}</span>
             </div>
           </div>
+          <ModalImage          
+            show={modalShow}
+            image={image}
+            onHide={() => setModalShow(false)}            
+          />
           <div className="card-price">
             <p className="card-title">${product.originalPrice.toLocaleString("es")}</p>
           </div>
@@ -43,16 +54,16 @@ function ProductCard({ product, addProduct }) {
               Ver mas
             </Link>
             <button className="m-1 card-button" onClick={() => {
-              notify()              
-              addProduct(product,count)
+              notify()
+              addProduct(product, count)
             }}>
               Agregar al carrito
             </button>
           </div>
           <Toaster position="top-center" reverseOrder={false} toastOptions={{
-            style: {              
-              boxShadow:'none',
-              border:'1px solid rgba(0, 0, 0, 0.175)'
+            style: {
+              boxShadow: 'none',
+              border: '1px solid rgba(0, 0, 0, 0.175)'
             },
           }}
           />
@@ -63,7 +74,7 @@ function ProductCard({ product, addProduct }) {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    addProduct: (product) => dispatch(actions.addProduct(product))
+    addProduct: (product,count) => dispatch(actions.addProduct(product,count))
   }
 }
 export default connect(null, mapDispatchToProps)(ProductCard)

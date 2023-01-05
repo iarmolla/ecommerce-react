@@ -7,8 +7,10 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import Footer from "../components/Footer";
 import stars from '../assets/stars.svg'
+import ModalImage from '../components/ModaImage'
 
 function ProductDescription({ ...props }) {
+  const [modalShow, setModalShow] = useState(false);
   const params = useParams();
   const [count, updateCount] = useState(1);
   const [image, updateImage] = useState("product-image");
@@ -18,7 +20,7 @@ function ProductDescription({ ...props }) {
     element?.scrollIntoView()
     let products = [0, 1]
     products = Object.values(props.getProduct)
-    if(products.length<=0) {     
+    if (products.length <= 0) {
       props.loadProducts()
     }
   }, []);
@@ -43,6 +45,8 @@ function ProductDescription({ ...props }) {
                 name="product-image"
                 onClick={(e) => {
                   updateImage(e.target.name);
+                  setModalShow(true)
+                  
                 }}
               />
               <img
@@ -51,6 +55,8 @@ function ProductDescription({ ...props }) {
                 name="product-image-2"
                 onClick={(e) => {
                   updateImage(e.target.name);
+                  setModalShow(true)
+
                 }}
               />
               <img
@@ -59,11 +65,20 @@ function ProductDescription({ ...props }) {
                 name="product-image-3"
                 onClick={(e) => {
                   updateImage(e.target.name);
+                  setModalShow(true)
+
                 }}
+              />
+              <ModalImage
+                show={modalShow}
+                image={product.image}
+                classProduct={image}
+                updateImage={updateImage}
+                onHide={() => setModalShow(false)}
               />
             </div>
             <div>
-              <img className={image} src={product?.image} alt="" />
+              <img className={image} src={product?.image} alt="" onClick={()=>setModalShow(true)}/>
             </div>
             <div className="card--">
               <div className="card-body">
@@ -114,7 +129,7 @@ function ProductDescription({ ...props }) {
                   </div>
                   <div className="card-buttons">
                     <Link to="/cart" className="card-link card-button w-100" onClick={() => {
-                      props.addProduct(product,count)
+                      props.addProduct(product, count)
                     }}>Comprar</Link>
                     <button
                       className="card-button card-button-- w-100"
