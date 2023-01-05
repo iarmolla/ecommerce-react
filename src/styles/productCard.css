@@ -64,7 +64,7 @@
   object-fit: contain;
   padding-top: 3rem;
   min-height: 200px;
-  min-width: 160px;
+  min-width: 200px;
   max-height: 400px;
   max-width: 400px;
   transition: 300ms;
