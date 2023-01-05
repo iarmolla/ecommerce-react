@@ -38,6 +38,9 @@
   }
   @media (max-width: 990px) {
     .form{
+      margin-top: 5rem;
+      padding: 0;
       border: none;
+      margin-bottom: 5rem;
     }
 }
