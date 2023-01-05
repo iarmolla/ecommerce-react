@@ -72,5 +72,12 @@
 
 .card-image:hover {
   cursor: pointer;
-  opacity: .9;
+  opacity: 0.9;
+}
+
+.card-links {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  justify-content: flex-start;
 }
