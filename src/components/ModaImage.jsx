@@ -11,8 +11,10 @@ function ModalImage({ ...props }) {
                 centered
             >
                 <Modal.Body className="modal-body-image">
-                <i className="bi bi-x-lg task-icon-close" onClick={props.onHide}></i>
-                    <img src={props.image} alt="modal" className={`${props.classProduct} modal-image`}/>
+                    <i className="bi bi-x-lg task-icon-close" onClick={props.onHide}></i>
+                    <div className="modal-images">
+                        <img src={props.image} alt="modal" className={`${props.names} modal-image`} />
+                    </div>
                 </Modal.Body>
             </Modal>
         </div>
