@@ -26,6 +26,7 @@
 .purchase-hide {
   display: none;
 }
+
 @media (max-width: 990px) {
   .purchase {
     margin-top: 4rem;
