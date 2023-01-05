@@ -33,9 +33,6 @@
     min-width: auto;
     width: 100%;
   }
-  .card {
-    
-  }
 }
 @media (max-width: 1024px) {
   .container-products {
@@ -49,6 +46,7 @@
 @media (max-width: 768px) {
   .container-products {
     grid-template-columns: repeat(1,1fr);
+    margin: 1rem;
   }
 }
 
