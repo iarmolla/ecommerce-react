@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
-import { Link } from "react-router-dom";
 import '../styles/form.css'
 import Footer from '../components/Footer'
 import { useNavigate } from "react-router-dom";
@@ -70,7 +69,7 @@ function Login({ ...props }) {
                   autoComplete="off"
                 />
                 <div id="emailHelp" className="form-text">
-                  <span className="form-errors">{errors.email}</span>
+                  <span className={`${errors.email ? 'form-errors' : 'form-errors-hidden'}`}>{errors.email}</span>
                 </div>
               </div>
               <div className="mb-3">
@@ -86,7 +85,7 @@ function Login({ ...props }) {
                   id="exampleInputPassword1"
                 />
                 <div className="form-text">
-                  <span className="form-errors">{errors.password}</span>
+                  <span className={`${errors.password ? 'form-errors' : 'form-errors-hidden'}`}>{errors.password}</span>
                 </div>
               </div>
               <button

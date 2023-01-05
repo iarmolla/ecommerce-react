@@ -34,13 +34,36 @@
   font-family: "Roboto", sans-serif;
 }
 .cart {
-    color: #fff !important;
+  color: #fff !important;
+}
+@media (max-width: 990px) {
+  .form {
+    margin-top: 5rem;
+    padding: 0;
+    border: none;
+    margin-bottom: 5rem;
   }
-  @media (max-width: 990px) {
-    .form{
-      margin-top: 5rem;
-      padding: 0;
-      border: none;
-      margin-bottom: 5rem;
-    }
+}
+.form-errors-hidden {
+  display: none;
+}
+.form-errors {
+  display: block;
+  opacity: 1;
+  animation-fill-mode: both;
+  animation-duration: 875ms;
+  animation-delay: 125ms;
+  animation-iteration-count: 1;
+  animation-name: errors;
+}
+
+@keyframes errors {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) ;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
 }
