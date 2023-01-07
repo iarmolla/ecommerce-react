@@ -23,7 +23,7 @@ function Cart({ ...props }) {
     setTotal(total)
     let localStorage = window.localStorage.getItem("loggedUser");
     localStorage = JSON.parse(localStorage)
-    if (localStorage.logged) {
+    if (localStorage?.logged) {
       setUserLogged(true)
     }
   }, [])
