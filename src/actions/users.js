@@ -24,9 +24,17 @@ function getUsersSuccess(users) {
   }
 }
 
+function createUser(user) {
+  return {
+    type: 'CREATE_USER',
+    user
+  }
+}
+
 export default {
   loginUser,
   loginUserSuccess,
   getUsers,
-  getUsersSuccess
+  getUsersSuccess,
+  createUser
 }

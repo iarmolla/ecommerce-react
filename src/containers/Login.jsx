@@ -20,6 +20,7 @@ const mapStateToProps = state => {
 const LoginContainer = ({ ...props }) => {
     return (
         <Login
+            footer={props.footer}
             loadUsers={props.loadUsers}
             getUsers={props.getUsers}
             loginUser={props.loginUser}

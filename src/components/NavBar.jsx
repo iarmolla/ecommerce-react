@@ -7,16 +7,16 @@ import logo from '../assets/logo.jpg'
 function NavBar({ ...props }) {
   const [user, setUser] = useState(false)
   const [userName, setUserName] = useState()
-  useEffect(() => {
+  useEffect(() => {    
     let aux = window.localStorage.getItem("loggedUser");
     if (aux) {
       aux = JSON.parse(aux)
       setUser(true)
-      setUserName(aux.email)
+      setUserName(aux.email) 
     }
     else {
       Object.values(props.getUsers).map((user) => {
-        if (user.logged) {
+        if (user?.logged) {
           setUser(true)
           setUserName(user.email)
         }

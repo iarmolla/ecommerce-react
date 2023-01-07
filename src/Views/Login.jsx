@@ -9,6 +9,7 @@ function Login({ ...props }) {
   useEffect(() => {
     props.loadUsers()
   }, [])
+
   const navigate = useNavigate("/");
   return (
     <>
@@ -37,7 +38,12 @@ function Login({ ...props }) {
                 values.id = element.id
                 values.logged = true
                 props.loginUser(values)
-                navigate('/')
+                console.log(values)
+                if (props.footer == false) {
+
+                } else {
+                  navigate('/')
+                }
                 window.localStorage.setItem(
                   "loggedUser", JSON.stringify(values)
                 )
@@ -49,10 +55,12 @@ function Login({ ...props }) {
           {({
             values,
             errors,
+            handleBlur,
+            touched,
             handleChange,
             handleSubmit,
           }) => (
-            <form method="POST" className="form" onSubmit={handleSubmit}>
+            <form method="POST" className={`${props.footer == false ? 'form border-0' : 'form'}`} onSubmit={handleSubmit}>
               <h1 className="form-title">Iniciar sesion</h1>
               <div className="form-link">
                 <span>¿No tienes una cuenta? <Link to="/register">Entra aqui</Link></span>
@@ -65,6 +73,7 @@ function Login({ ...props }) {
                   type="email"
                   name="email"
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   value={values.email}
                   className="form-control form-control--"
                   id="exampleInputEmail1"
@@ -72,7 +81,7 @@ function Login({ ...props }) {
                   autoComplete="off"
                 />
                 <div id="emailHelp" className="form-text">
-                  <span className={`${errors.email ? 'form-errors' : 'form-errors-hidden'}`}>{errors.email}</span>
+                  <span className={`${touched.email && errors.email ? 'form-errors' : 'form-errors-hidden'}`}>{touched.email && errors.email}</span>
                 </div>
               </div>
               <div className="mb-3">
@@ -83,16 +92,17 @@ function Login({ ...props }) {
                   type="password"
                   name="password"
                   value={values.password}
+                  onBlur={handleBlur}
                   onChange={handleChange}
                   className="form-control"
                   id="exampleInputPassword1"
                 />
                 <div className="form-text">
-                  <span className={`${errors.password ? 'form-errors' : 'form-errors-hidden'}`}>{errors.password}</span>
+                  <span className={`${touched.password && errors.password ? 'form-errors' : 'form-errors-hidden'}`}>{touched.password && errors.password}</span>
                 </div>
               </div>
               <button
-                className="btn btn-primary form-submit"
+                className="btn btn-primary form-submit mt-2"
                 type="submit"
               >
                 Aceptar
@@ -104,7 +114,7 @@ function Login({ ...props }) {
           )}
         </Formik>
       </div>
-      <Footer></Footer>
+      {props.footer == false ? <></> : <Footer></Footer>}
     </>
 
   );
