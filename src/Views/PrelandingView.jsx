@@ -22,12 +22,10 @@ const PrelandingView = ({ ...props }) => {
         <Carousel></Carousel>
         <section className="container shoes container-shoes">
           <div className="row justify-content-center align-items-center p-5">
-            <h1 className="container-title">
-              Mejores marcas en zapatillas ropa accesorios y pc
-            </h1>
-            <Link to="/men" className="btn btn-primary w-75 m-2 container-btn">
-              Ver mas
-            </Link>
+            <h1 className="container-title">              
+              NUEVA TEMPORADA 2023 
+            </h1>            
+            <Link to="/men" className="button-news mt-4">VER MÁS</Link>         
           </div>
           <img
             src={airmax}
@@ -38,7 +36,7 @@ const PrelandingView = ({ ...props }) => {
       </main>
       <div>
         <section className="section-new">
-          <h3 className="section-news">Novedades</h3>
+          <h3 className="section-news text-uppercase">Novedades</h3>
         </section>
       </div>
       <div className="product-description">

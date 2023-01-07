@@ -69,3 +69,22 @@
   }
   
 }
+
+.button-news {
+  padding: .5rem 1rem;
+  outline: none;
+  border: 1px solid #6f7171d9;
+  background: transparent;
+  transition: 300ms;
+  max-width: 200px;
+  font-weight: 500;
+  border-radius: 3px;
+  text-decoration: none;
+  text-align: center;
+  color: #000;
+}
+
+.button-news:hover {
+  color: inherit;
+  background: #e4e5e7b0;
+}
