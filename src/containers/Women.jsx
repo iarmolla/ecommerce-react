@@ -5,11 +5,11 @@ import getWomen from '../selectors/getWomen'
 import actions from '../actions/products'
 
 const mapDispatchToProps = dispatch => {
-    return {
-        loadWomen: () => dispatch(actions.getWomen()),
+    return {        
         orderByPriceAscending: () => dispatch(actions.orderWomenPriceAscending()),
         orderByPriceDescending: () => dispatch(actions.orderWomenPriceDescending()),
-        orderByName: () => dispatch(actions.orderWomenName())
+        orderByName: () => dispatch(actions.orderWomenName()),
+        loadProducts: () => dispatch(actions.getProducts()),
     }
 }
 
@@ -22,7 +22,7 @@ const mapStateToProps = state => {
 const WomenContainer = ({ ...props }) => {
     return (
         <Women
-            loadWomen={props.loadWomen}
+            loadProducts={props.loadProducts}
             getWomen={props.getWomen}
             orderByPriceAscending={props.orderByPriceAscending}
             orderByPriceDescending={props.orderByPriceDescending}

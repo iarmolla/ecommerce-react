@@ -6,6 +6,7 @@ import actions from '../actions/products'
 
 const mapDispatchToProps = dispatch => {
     return {
+        loadProducts: () => dispatch(actions.getProducts()),
         getJewelery: () => dispatch(actions.getJewelery()),
         orderByPriceAscending: () => dispatch(actions.orderJeweleryPriceAscending()),
         orderByPriceDescending: () => dispatch(actions.orderJeweleryPriceDescending()),
@@ -21,6 +22,7 @@ const JeweleryContainer = ({ ...props }) => {
     return (
         <Jewelery
             getJewelery={props.getJewelery}
+            loadProducts={props.loadProducts}
             jewelery={props.jewelery}
             orderByPriceAscending={props.orderByPriceAscending}
             orderByPriceDescending={props.orderByPriceDescending}

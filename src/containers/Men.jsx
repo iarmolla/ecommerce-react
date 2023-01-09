@@ -5,23 +5,26 @@ import getMen from '../selectors/getMen'
 import actions from '../actions/products'
 
 const mapDispatchToProps = dispatch => {
-    return {
-        loadMen: () => dispatch(actions.getMen()),
+    return {        
         orderByPriceAscending: () => dispatch(actions.orderMenPriceAscending()),
         orderByPriceDescending: () => dispatch(actions.orderMenPriceDescending()),
-        orderByName: () => dispatch(actions.orderMenName())
+        orderByName: () => dispatch(actions.orderMenName()),
+        loadProducts: () => dispatch(actions.getProducts())
     }
 }
+
 const mapStateToProps = state => {
     return {
-        getMen: getMen(state)
+        getMen: getMen(state),
     }
 }
+
 const JeweleryContainer = ({ ...props }) => {
     return (
-        <Men
-            loadMen={props.loadMen}
+        <Men            
             getMen={props.getMen}
+            loadProducts={props.loadProducts}
+            getCart={props.getProducts}
             orderByPriceAscending={props.orderByPriceAscending}
             orderByPriceDescending={props.orderByPriceDescending}
             orderByName={props.orderByName}

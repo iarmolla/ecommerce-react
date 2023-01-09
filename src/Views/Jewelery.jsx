@@ -7,7 +7,9 @@ import Footer from '../components/Footer'
 function Jewelery({ ...props }) {
   const [grid, updateGrid] = useState("container-products");
   useEffect(() => {
-    props.getJewelery()
+    if(Object.values(props.jewelery).length == 0) {
+      props.loadProducts()
+    }
   }, []);
   let products = [0,1]
   products = Object.values(props.jewelery)

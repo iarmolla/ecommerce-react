@@ -6,8 +6,10 @@ import Footer from '../components/Footer'
 
 function Women({...props}) {
   const [grid, updateGrid] = useState("container-products");
-  useEffect(() => {
-    props.loadWomen()
+  useEffect(() => {    
+    if (Object.values(props.getWomen).length == 0) {
+      props.loadProducts()
+    }
   }, []);
   let products = [0, 1]
   products = Object.values(props.getWomen)

@@ -13,18 +13,26 @@ function ProductDescription({ ...props }) {
   const [count, updateCount] = useState(1);
   const [image, updateImage] = useState("product-image");
   const notify = () => toast.success("Producto agregado al carrito");
+
   useEffect(() => {
-    const element = document.getElementById('container-product')
-    element?.scrollIntoView()
     let products = [0, 1]
     products = Object.values(props.getProduct)
     if (products.length <= 0) {
       props.loadProducts()
     }
-  }, []);
+    products.map((product) => {
+      if (params.id == product.id) {
+        if (product.stock == 0) {
+          updateCount(0)
+        }
+      }
+    })
+
+  }, [count]);
   let products = [0, 1]
   products = Object.values(props.getProduct)
   let product = products.find(product => product.id == params.id)
+
   return (
     <>
       {products.length == 0 ? (
@@ -43,8 +51,6 @@ function ProductDescription({ ...props }) {
                 name="product-image"
                 onClick={(e) => {
                   updateImage(e.target.name);
-                  setModalShow(true)
-
                 }}
               />
               <img
@@ -53,8 +59,6 @@ function ProductDescription({ ...props }) {
                 name="product-image-2"
                 onClick={(e) => {
                   updateImage(e.target.name);
-                  setModalShow(true)
-
                 }}
               />
               <img
@@ -63,7 +67,6 @@ function ProductDescription({ ...props }) {
                 name="product-image-3"
                 onClick={(e) => {
                   updateImage(e.target.name);
-                  setModalShow(true)
                 }}
               />
               <ModalImage
@@ -105,8 +108,7 @@ function ProductDescription({ ...props }) {
                     esperabas o te devolvemos tu dinero
                   </span>
                   <span>Garantia: 12 meses</span>
-                  <span>Stock disponible</span>
-                  <span>Color: blanco</span>
+                  <span className={`${count == 0 ? 'text-danger' : 'text-success'}`}>Stock {count > 0 ? 'Disponible' : 'Agotado'}</span>
                   <div className="card-count mb-3">
                     <span>Cantidad</span>
                     <i
@@ -119,20 +121,30 @@ function ProductDescription({ ...props }) {
                     <i
                       className="bi bi-plus-lg"
                       onClick={() => {
-                        count >= 1 && count <= 2 ? updateCount(count + 1) : updateCount(count)
+                        if (count < product.stock) {
+                          updateCount(count + 1)
+                        }
                       }}
                     ></i>
                   </div>
                   <div className="card-buttons">
                     <Link to="/cart" className="card-link card-button w-100" onClick={() => {
-                      props.addProduct(product, count)
+                      if (count != 0) {
+                        props.addProduct(product, count)
+                      }
                     }}>Comprar</Link>
                     <button
                       className="card-button card-button-- w-100"
                       onClick={() => {
-                        notify()
-                        props.addProduct(product, count)
-                        updateCount(1)
+                        if (product.stock > 0) {
+                          notify()
+                          props.modifyProducts(product, count)
+                          props.addProduct(product, count)
+                          updateCount(1)
+                        }
+                        if (product.stock == 0) {
+                          updateCount(0)
+                        }
                       }}>
                       Agregar al carrito
                     </button>

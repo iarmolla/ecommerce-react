@@ -4,10 +4,12 @@ import Icons from "../components/Icons";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from '../components/Footer'
 
-function Technology({...props}) {
+function Technology({ ...props }) {
   const [grid, updateGrid] = useState("container-products");
   useEffect(() => {
-    props.loadTechnology()
+    if (Object.values(props.getTechnology).length == 0) {
+      props.loadProducts()
+    }
   }, []);
   let products = [0, 1]
   products = Object.values(props.getTechnology)

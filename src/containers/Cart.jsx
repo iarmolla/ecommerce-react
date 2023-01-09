@@ -7,7 +7,8 @@ import getProducts from '../selectors/cartProducts'
 
 const mapDispatchToProps = dispatch => {
     return {
-        deleteProduct: (id) => dispatch(actions.deleteProduct(id))
+        deleteProduct: (id) => dispatch(actions.deleteProduct(id)),
+        modifyProduct: (product) => dispatch(actions.modifyProduct(product))
     }
 }
 const mapStateToProps = state => {
@@ -17,7 +18,8 @@ const mapStateToProps = state => {
 }
 const CartContainer = ({ ...props }) => {
     return (
-        <Cart            
+        <Cart
+            modifyProduct={props.modifyProduct}
             getCart={props.getProducts}
             deleteProduct={props.deleteProduct}
         />

@@ -11,7 +11,9 @@ function Cart({ ...props }) {
   const [total, setTotal] = useState([])
   const [id, setId] = useState()
   const [userLogged, setUserLogged] = useState(false)
+  const [count, setCount] = useState(0)
   const navigate = useNavigate();
+
   let product = [0, 1]
   product = Object.values(props.getCart)
   useEffect(() => {
@@ -26,7 +28,16 @@ function Cart({ ...props }) {
     if (localStorage?.logged) {
       setUserLogged(true)
     }
-  }, [])
+  }, [count])
+  const changeAmount = (product) => {
+    let options = [
+      <option key={product.title} value={product.title} disabled selected>{`Seleccionado: ${product.repeated} Unidades`}</option>
+    ]
+    for (let x = 1; x <= product.rating.count; x++) {
+      options.push(<option key={x} value={x}>{`Cantidad: ${x} Unidades`}</option>)
+    }
+    return options
+  }
   return (
     <>
       {product.length == 0 ? (
@@ -59,7 +70,9 @@ function Cart({ ...props }) {
                           className="cart-image"
                           alt={product.title}
                         />
-                        <span className="table-product-title">{product?.title}</span>
+                        <div className="table-product-title">
+                          <span className="">{product?.title}</span>
+                        </div>
                       </div>
                     </td>
                     <td>
@@ -68,9 +81,14 @@ function Cart({ ...props }) {
                       </div>
                     </td>
                     <td>
-                      <select className="form-select">
+                      <select className="form-select" onChange={(e) => {
+                        const newProduct = product
+                        newProduct.modify = e.target.value
+                        props.modifyProduct(newProduct)
+                        setCount(count + 1)
+                      }}>
                         {
-                          product.repeated == 1 ? <option value="2">{product.repeated}</option> : <option value="2">{product.repeated}</option>
+                          changeAmount(product)
                         }
                       </select>
                     </td>
@@ -92,6 +110,7 @@ function Cart({ ...props }) {
                       </div>
                     </td>
                   </tr>
+
                 );
               })}
             </tbody>
