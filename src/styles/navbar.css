@@ -10,6 +10,7 @@
 .navbar-icons {
   display: flex;
   gap: 0.5rem;
+  align-items: center;
   /* margin-right: 1rem; */
 }
 .navbar-categories-link {
@@ -40,6 +41,11 @@
 .cart-container {
   color: #000;
 }
+
+.dropdown-menu[data-bs-popper] {
+  top: 100%;
+  left: 20px;
+}
 @media (max-width: 990px) {
   .navbar-button {
     border: none;
@@ -62,5 +68,8 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
+  }
+  .dropdown-menu[data-bs-popper] {
+   margin-left: 1rem;
   }
 }

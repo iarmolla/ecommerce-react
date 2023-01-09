@@ -54,6 +54,9 @@
   .container-products {
     grid-template-columns: repeat(2,1fr);
   }
+  .card {
+    min-height: 400px;
+  }
 }
 
 @media (min-width: 992px) {
