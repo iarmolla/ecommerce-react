@@ -46,7 +46,10 @@ function ProductCard({ product, addProduct, modifyProducts }) {
             onHide={() => setModalShow(false)}
           />
           <div className="card-price">
-            <p className="card-title">${product?.originalPrice?.toLocaleString("es")}</p>
+            {
+              product.stock == 0 ? <span className="text-danger mb-1">Agotado</span> :
+                <p className="card-title mb-1">${product?.originalPrice?.toLocaleString("es")}</p>
+            }
           </div>
           <div className="card-links">
             <Link
