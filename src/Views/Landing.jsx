@@ -16,7 +16,7 @@ function Landing() {
                     <h1 className='landing-title' id="landing-title">Mejores productos al alcance de tus manos</h1>
                     <p className='landing-text'>Ultimos modelos actualizados con los precios mas bajos</p>
                     <div className='landing-buttons'>
-                        <Link to='/' className='card-button landing-button'>Mas productos</Link>
+                        <Link to='/' className='card-button landing-button'>Más productos</Link>
                         <div className='landing-links'>
                             <Link to='/login' className='landing-link'>Acceder</Link>
                             <box-icon name='chevron-right'></box-icon>

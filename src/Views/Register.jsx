@@ -2,36 +2,52 @@ import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
 import '../styles/form.css'
 import Footer from '../components/Footer'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { connect } from 'react-redux'
 import actions from '../actions/users'
+import actionsEmail from '../actions/email'
 import getUser from '../selectors/getUsers'
+import getEmail from '../selectors/getEmail'
 
 function Register({ ...props }) {
   const [userError, updateUserError] = useState(null);
   const [register, setRegister] = useState(false)
   const [repitedUser, setRepitedUser] = useState('ok')
+  const [user, setUser] = useState()
+
   const navigate = useNavigate("/");
-  const validateUser = (values) => {
-    setRepitedUser('ok')
-    let validate = 'ok'
-    props.getUsers.map((user) => {
-      if (user.email === values.email) {
-        setRepitedUser("Ya existe un usuario registrado con ese email")
-        validate = "Ya existe un usuario registrado con ese email"
-        setRegister(false)
+
+  useEffect(() => {
+    if (user?.email?.length >= 0) {
+      validateUser(user)
+    }
+  }, [props.getEmail])
+
+  const validateUser = (values) => {    
+    if (props.getEmail.deliverability == 'DELIVERABLE') {
+      setRepitedUser('ok')
+      let validate = 'ok'
+      props.getUsers.map((user) => {
+        if (user.email === values.email) {
+          setRepitedUser("Ya existe un usuario registrado con ese email")
+          validate = "Ya existe un usuario registrado con ese email"
+          setRegister(false)
+        }
+      })
+      if (validate == 'ok' && values.password == values.repeat) {
+        values.logged = true
+        props.createUser(values)
+        setRegister(true)
+        window.localStorage.setItem(
+          "loggedUser", JSON.stringify(values)
+        )
+        setTimeout(() => {
+          navigate('/')
+        }, 3000)
       }
-    })
-    if (validate == 'ok' && values.password == values.repeat) { 
-      values.logged = true
-      props.createUser(values)
-      setRegister(true)
-      window.localStorage.setItem(
-        "loggedUser", JSON.stringify(values)
-      )
-      setTimeout(() => {        
-        navigate('/')     
-      }, 3000)
+    }    
+    else if (props.getEmail.deliverability != 'DELIVERABLE') {
+      setRepitedUser('El email no existe')
     }
   }
   return (
@@ -57,7 +73,8 @@ function Register({ ...props }) {
             return errors;
           }}
           onSubmit={(values) => {
-            validateUser(values)
+            props.validateEmail(values?.email)
+            setUser(values)
           }}
         >
           {({
@@ -154,12 +171,14 @@ function Register({ ...props }) {
 
 const mapStateToProps = state => {
   return {
-    getUsers: getUser(state)
+    getUsers: getUser(state),
+    getEmail: getEmail(state)
   }
 }
 const mapDispatchToProps = dispatch => {
   return {
     createUser: (user) => dispatch(actions.createUser(user)),
+    validateEmail: (email) => dispatch(actionsEmail.email(email))
   }
 }
 
