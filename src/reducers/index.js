@@ -6,6 +6,7 @@ import menReducer from './menReducer'
 import womenReducer from './womenReducer'
 import technologyReducer from './technologyReducer'
 import cartReducer from './cartReducer'
+import emailReducer from './emailReducer'
 
 const rootReducer = combineReducers({
     users:usersReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     men: menReducer,
     women: womenReducer,
     technology: technologyReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    email: emailReducer
 })
 
 export default rootReducer

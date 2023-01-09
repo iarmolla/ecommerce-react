@@ -136,14 +136,30 @@ function orderJeweleryName() {
   };
 }
 
-
-function addProduct(product, count = 0) {
+function addProduct(product, count) {
   return {
     type: "ADD_PRODUCT",
     product,
     count,
   };
 }
+
+function modifyProducts(product, count) {
+  return {
+    type: "MODIFY_PRODUCTS",
+    product,
+    count,
+  };
+}
+
+
+function modifyProduct(product) {
+  return {
+    type:"MODIFY_PRODUCT",
+    product
+  }
+}
+
 function purchasedProducts() {
   return {
     type: "PURCHASED_PRODUCTS",
@@ -169,6 +185,7 @@ export default {
   getTechnologySuccess,
   addProduct,
   purchasedProducts,
+  modifyProduct,
   deleteProduct,
   orderMenPriceAscending,
   orderMenPriceDescending,
@@ -181,5 +198,6 @@ export default {
   orderTechnologyPriceDescending,
   orderJeweleryName,
   orderJeweleryPriceAscending,
-  orderJeweleryPriceDescending
+  orderJeweleryPriceDescending,
+  modifyProducts
 };

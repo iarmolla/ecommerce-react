@@ -4,9 +4,10 @@ export default function products(state = initialState, action) {
   switch (action.type) {
     case "GET_MEN_SUCCESS":
       action.values.map((product) => {
-        product.repeated = 1;
-        product.price *= 350;
+        product.repeated = 1;        
         product.originalPrice = product.price;
+        product.rating.count = 5
+        product.stock = 5
       });
       return {
         ...state,
