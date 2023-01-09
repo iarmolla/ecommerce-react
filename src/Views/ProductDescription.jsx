@@ -13,7 +13,10 @@ function ProductDescription({ ...props }) {
   const [count, updateCount] = useState(1);
   const [image, updateImage] = useState("product-image");
   const notify = () => toast.success("Producto agregado al carrito");
-
+  useEffect(() => {
+    const element = document.getElementById('navbar')
+    element?.scrollIntoView()
+  }, [])
   useEffect(() => {
     let products = [0, 1]
     products = Object.values(props.getProduct)
@@ -29,6 +32,7 @@ function ProductDescription({ ...props }) {
     })
 
   }, [count]);
+
   let products = [0, 1]
   products = Object.values(props.getProduct)
   let product = products.find(product => product.id == params.id)

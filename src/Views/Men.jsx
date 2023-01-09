@@ -8,7 +8,11 @@ import Footer from '../components/Footer'
 function Men({ ...props }) {
   const [grid, updateGrid] = useState("container-products");
   useEffect(() => {
-    if(props.getMen.length == 0) {
+    const element = document.getElementById('navbar')
+    element?.scrollIntoView()
+  }, [])
+  useEffect(() => {
+    if (props.getMen.length == 0) {
       props.loadProducts()
     }
   }, []);
@@ -26,7 +30,7 @@ function Men({ ...props }) {
           </div>
         </div>
       ) : (
-        <div className="men-order">
+        <div className="men-order" >
           <Icons orderByPriceAscending={props.orderByPriceAscending} orderByPriceDescending={props.orderByPriceDescending} orderByName={props.orderByName} updateGrid={updateGrid}></Icons>
           <div className="mt-5 mb-5 product-description">
             <AnimatePresence>

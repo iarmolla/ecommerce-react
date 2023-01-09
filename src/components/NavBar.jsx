@@ -31,7 +31,7 @@ function NavBar({ ...props }) {
   }
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg bg-light" id="navbar">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/landing">
             <img
