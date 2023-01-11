@@ -13,12 +13,12 @@ function Cart({ ...props }) {
   const [userLogged, setUserLogged] = useState(false)
   const [count, setCount] = useState(0)
   const navigate = useNavigate();
-
   let product = [0, 1]
   product = Object.values(props.getCart)
   useEffect(() => {
     let aux = [0]
-    product.map((e) => {
+    console.log(props.getCart)
+    product.map((e) => {      
       aux.push(e.price)
     })
     let total = aux.reduce((a, b) => a + b, 0);
@@ -28,7 +28,7 @@ function Cart({ ...props }) {
     if (localStorage?.logged) {
       setUserLogged(true)
     }
-  }, [count])
+  }, [count,product])
   const changeAmount = (product) => {
     let options = [
       <option key={product.title} value={product.title} disabled selected>{`Seleccionado: ${product.repeated} Unidades`}</option>
@@ -81,10 +81,12 @@ function Cart({ ...props }) {
                       </div>
                     </td>
                     <td>
-                      <select className="form-select" onChange={(e) => {
+                      <select className="form-select" onChange={(e) => {  
                         const newProduct = product
-                        newProduct.modify = e.target.value
+                        newProduct.modify = parseInt(e.target.value) 
+                        product = newProduct                       
                         props.modifyProduct(newProduct)
+                        props.modifyStock(newProduct)
                         setCount(count + 1)
                       }}>
                         {
@@ -102,6 +104,8 @@ function Cart({ ...props }) {
                           show={modalShow}
                           onHide={() => setModalShow(false)}
                           delete={props.deleteProduct}
+                          modify={props.modifyStock}
+                          stock={product}
                           product={id}
                           price={product.price}
                           total={total}

@@ -6,7 +6,7 @@ export default function products(state = initialState, action) {
       let stateOriginal = [0, 1];
       stateOriginal = Object.values(state);
       action.values.map((product) => {
-        product.repeated = 1;        
+        product.repeated = 1;
         product.stock = 5;
         product.rating.count = 5;
         product.originalPrice = product.price;
@@ -20,6 +20,16 @@ export default function products(state = initialState, action) {
         ...state,
         ...action.values,
       };
+    case "MODIFY_STOCK":     
+      let modifyProduct = [0, 1];
+      modifyProduct = Object.values(state);
+      modifyProduct.map((product) => {        
+        if (action.id.id == product.id) {          
+          product.stock = action.id.repeated
+          product.repeated = 0      
+        }
+      });      
+      return state = modifyProduct
     case "MODIFY_PRODUCTS":
       let products = [0, 1];
       products = Object.values(state);

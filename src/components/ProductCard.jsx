@@ -88,7 +88,6 @@ const mapDispatchToProps = dispatch => {
   return {
     addProduct: (product, count) => dispatch(actions.addProduct(product, count)),
     modifyProducts: (product, count) => dispatch(actions.modifyProducts(product, count)),
-
   }
 }
 export default connect(null, mapDispatchToProps)(ProductCard)

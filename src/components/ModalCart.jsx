@@ -1,8 +1,10 @@
-import React from "react";
+import React,{ useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 function ModalCart({ ...props }) {
+ const [product, setProduct] = useState(props.stock)
+ console.log("PRODUCT "+product.stock)
   return (
     <div>
       <Modal
@@ -20,9 +22,11 @@ function ModalCart({ ...props }) {
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={() => {
+            const aux = props.stock            
+            props.modify(aux)       
             props.onHide()           
-            props.delete(props.product)            
-            props.set(props.total -= props.price)           
+            props.set(props.total -= props.price)  
+            props.delete(props.product)      
           }} className="btn btn-danger">Eliminar</Button>
           <Button onClick={props.onHide}>Cerrar</Button>
         </Modal.Footer>

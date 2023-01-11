@@ -23,10 +23,10 @@ export default function products(state = initialState, action) {
       }
       return state;
     case "DELETE_PRODUCT":
-      return state.filter((element) => {
-        return element.id != action.id;
-      });
-    case "MODIFY_PRODUCT":
+      return state.filter((element) => {       
+          return element.id != action.id;        
+      });        
+    case "MODIFY_PRODUCT":      
       state.map((product) => {
         if (action.product.id == product.id) {
           product.repeated = action.product.modify;
