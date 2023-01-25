@@ -1,9 +1,9 @@
-# Ecommerce 
-ESTD 🛒 es una web, que vende productos y ofrece un gran catalogo. El mismo tiene un apartado de cada sección, carrito de compras, tecnologia, joyeria, hombres, mujeres etc.
+# Ecommerce 🛒
+ESTD  es una web, que vende productos y ofrece un gran catalogo. El mismo tiene un apartado de cada sección, carrito de compras, tecnologia, joyeria, hombres, mujeres etc.
 Posee registro de usuarios y a la vez la posibilidad de iniciar sesión para poder finalizar la compra de lo que el usuario desee.
 Como característica, ofrece diseño adaptable a los distintos dispositivos que accedan.
 
-## Características
+## Características 📋
 - Sección hombres
 - Sección mujeres
 - Sección joyería
@@ -22,7 +22,7 @@ Como característica, ofrece diseño adaptable a los distintos dispositivos que 
 ESTD es un ecommerce web que tiene como característica un diseño agradable al usuario para que sea atractivo al consumidor final.
 Tiene como objetivo principal vender productos y a su vez ir haciendo mejoras continuas sobre ESTD.
 
-## Tecnologías
+## Tecnologías 🖥️
 El ecommerce esta construido con:
 
 - [React]
@@ -33,7 +33,7 @@ El ecommerce esta construido con:
 - [react-router-dom]
 - [redux-saga]
 
-## Instalación 
+## Instalación ⚙️
 Cambiar api key de abstract api en services.
 Para instalar las dependencias y poder correr el proyecto:
 - npm install
