@@ -4,7 +4,6 @@ import Modal from "react-bootstrap/Modal";
 
 function ModalCart({ ...props }) {
  const [product, setProduct] = useState(props.stock)
- console.log("PRODUCT "+product.stock)
   return (
     <div>
       <Modal
