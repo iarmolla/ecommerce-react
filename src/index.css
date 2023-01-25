@@ -23,6 +23,11 @@ img {
   filter: invert(108%);
 }
 
+.carousel-indicators > button {
+  filter: invert(108%);
+}
+
 .carousel__image {
   object-fit: contain;
 }
+
