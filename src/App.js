@@ -36,10 +36,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/landing" element={<Landing />}></Route>
+          <Route path="" element={<Landing />}></Route>
           <Route path="" element={<Dashboard></Dashboard>}>
-            <Route path={ user ? "" : "/login"} element={user ? <Prelanding></Prelanding> : <Login/>}></Route>
-            <Route path="" element={<Prelanding></Prelanding>}></Route>
+            <Route path={ user ? "/home" : "/login"} element={user ? <Prelanding></Prelanding> : <Login/>}></Route>
+            <Route path="/home" element={<Prelanding></Prelanding>}></Route>
             <Route
               path="/description/:id"
               element={<Description></Description>}

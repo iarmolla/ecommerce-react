@@ -16,8 +16,7 @@ function Cart({ ...props }) {
   let product = [0, 1]
   product = Object.values(props.getCart)
   useEffect(() => {
-    let aux = [0]
-    console.log(props.getCart)
+    let aux = [0]    
     product.map((e) => {      
       aux.push(e.price)
     })
