@@ -37,11 +37,8 @@ function Login({ ...props }) {
               if (values.email == element.email && values.password == element.password) {
                 values.id = element.id
                 values.logged = true
-                props.loginUser(values)
-                console.log(values)
-                if (props.footer == false) {
-
-                } else {
+                props.loginUser(values)               
+                if (!props.footer) {} else {
                   navigate('/')
                 }
                 window.localStorage.setItem(

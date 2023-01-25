@@ -42,7 +42,7 @@ function Register({ ...props }) {
           "loggedUser", JSON.stringify(values)
         )
         setTimeout(() => {
-          navigate('/')
+          navigate('/home')
         }, 3000)
       }
     }    
