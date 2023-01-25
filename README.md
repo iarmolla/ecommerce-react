@@ -37,4 +37,4 @@ El ecommerce esta construido con:
 Cambiar api key de abstract api en services.
 Para instalar las dependencias y poder correr el proyecto:
 - npm install
-- Generar una cuenta en [abstract-api](https://emailvalidation.abstractapi.com/) para las validaciones del email y obtener la key.
+- Generar una cuenta en [abstract-api](https://www.abstractapi.com/) para las validaciones del email y obtener la key.
