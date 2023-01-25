@@ -11,7 +11,7 @@ Como característica, ofrece diseño adaptable a los distintos dispositivos que 
 - Sección joyería
 - Sección tecnología
 - Carrito de compras
-- Imagenes del producto
+- Imágenes del producto
 - Borrar producto del carrito
 - Registrarse
 - Iniciar sesión 
