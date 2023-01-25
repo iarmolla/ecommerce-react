@@ -1,7 +1,12 @@
 import React from "react";
-import adidas from '../assets/adidas.jpg'
-import nike from '../assets/nike.jpg'
-import ropa from '../assets/ropa.jpg'
+import people from '../assets/people.png'
+import elegant from '../assets/elegant.png'
+import jeans from '../assets/jeans.png'
+import adidas from '../assets/adidas.png'
+import shirt from '../assets/shirt.png'
+
+
+
 
 function Carousel() {
   return (
@@ -32,16 +37,25 @@ function Carousel() {
             data-bs-slide-to="2"
             aria-label="Slide 3"
           ></button>
+           <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={nike} className="d-block w-100" alt="nike" />            
+            <img src={adidas} className="d-block w-100 carousel__image" alt="nike" />            
           </div>
           <div className="carousel-item">
-            <img src={ropa} className="d-block w-100" alt="ropa" />            
+            <img src={jeans} className="d-block w-100 carousel__image" alt="ropa" />            
           </div>
           <div className="carousel-item">
-            <img src={adidas} className="d-block w-100" alt="adidas" />
+            <img src={elegant} className="d-block w-100 carousel__image" alt="adidas" />
+          </div>
+          <div className="carousel-item">
+            <img src={shirt} className="d-block w-100 carousel__image" alt="adidas" />
           </div>
         </div>
         <button
