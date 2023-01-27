@@ -1,7 +1,7 @@
 [![ecommerce-copia.png](https://i.postimg.cc/23py46Wy/ecommerce-copia.png)](https://postimg.cc/sGc3z3wC)
 
-# Ecommerce 🛒
-ESTD  es una web, que vende productos y ofrece un gran catalogo. El mismo tiene un apartado de cada sección, carrito de compras, tecnologia, joyeria, hombres, mujeres etc.
+# ESTD - ECOMMERCE 🛒
+ESTD es una web, que vende productos y ofrece un gran catalogo. El mismo tiene un apartado de cada sección, carrito de compras, tecnologia, joyeria, mujeres y hombres.
 Posee registro de usuarios y a la vez la posibilidad de iniciar sesión para poder finalizar la compra de lo que el usuario desee.
 Como característica, ofrece diseño adaptable a los distintos dispositivos que accedan.
 
@@ -27,13 +27,14 @@ Tiene como objetivo principal vender productos y a su vez ir haciendo mejoras co
 ## Tecnologías 🖥️
 El ecommerce esta construido con:
 
-- [React]
-- [Bootstrap] 
-- [Formik]
-- [axios]
-- [bootstrap-icons]
-- [react-router-dom]
-- [redux-saga]
+- [React](https://es.reactjs.org/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Formik](https://formik.org/docs/tutorial)
+- [axios](https://axios-http.com/)
+- [bootstrap-icons](https://icons.getbootstrap.com/)
+- [react-router-dom](https://reactrouter.com/en/main)
+- [redux-saga](https://redux-saga.js.org/)
+- [react-hot-toast](https://react-hot-toast.com/docs)
 
 ## Instalación ⚙️
 Cambiar api key de abstract api en services.
