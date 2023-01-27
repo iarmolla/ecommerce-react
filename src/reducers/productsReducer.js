@@ -20,16 +20,23 @@ export default function products(state = initialState, action) {
         ...state,
         ...action.values,
       };
-    case "MODIFY_STOCK":     
+    case "MODIFY_STOCK":
       let modifyProduct = [0, 1];
       modifyProduct = Object.values(state);
-      modifyProduct.map((product) => {        
-        if (action.id.id == product.id) {          
-          product.stock = action.id.repeated
-          product.repeated = 0      
+      modifyProduct.map((product) => {
+        if (action.id.id == product.id) {
+          if (product.modify != null) {
+            product.repeated -= action.id.repeated;
+            product.repeated = product.modify;
+            product.stock = 5 - product.repeated;
+          } else {
+          }
+          if (product.repeated == 0) {
+            product.repeated = 1;
+          }
         }
-      });      
-      return state = modifyProduct
+      });
+      return (state = modifyProduct);
     case "MODIFY_PRODUCTS":
       let products = [0, 1];
       products = Object.values(state);
@@ -39,7 +46,16 @@ export default function products(state = initialState, action) {
         }
       });
       return (state = products);
-
+    case "DELETE_SUCCESS":
+      let recoverStock = [0, 1];
+      recoverStock = Object.values(state);
+      recoverStock.map((product) => {
+        if (action.modify === product.id) {
+          product.repeated = 1
+          product.stock = 5
+        }
+      });
+      return state;
     default:
       return state;
   }

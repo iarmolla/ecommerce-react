@@ -179,6 +179,14 @@ function modifyStock(id,stock) {
     stock
   }
 }
+
+function deleteSuccess(modify) {
+  return {
+    type:"DELETE_SUCCESS",
+    modify
+  }
+}
+
 export default {
   getJewelery,
   getJewelerySuccess,
@@ -207,5 +215,6 @@ export default {
   orderJeweleryPriceAscending,
   orderJeweleryPriceDescending,
   modifyProducts,
-  modifyStock
+  modifyStock,
+  deleteSuccess
 };

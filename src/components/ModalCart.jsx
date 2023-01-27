@@ -20,9 +20,9 @@ function ModalCart({ ...props }) {
           <p>Desea eliminar el producto seleccionado?</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => {
-            const aux = props.stock            
-            props.modify(aux)       
+          <Button onClick={() => {            
+            // const product = props.stock            
+            props.modify(props.test[0])                   
             props.onHide()           
             props.set(props.total -= props.price)  
             props.delete(props.product)      

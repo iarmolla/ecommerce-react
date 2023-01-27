@@ -15,6 +15,7 @@ function Cart({ ...props }) {
   const navigate = useNavigate();
   let product = [0, 1]
   product = Object.values(props.getCart)
+  const [aux, setAux] = useState(product)
   useEffect(() => {
     let aux = [0]    
     product.map((e) => {      
@@ -83,7 +84,7 @@ function Cart({ ...props }) {
                       <select className="form-select" onChange={(e) => {  
                         const newProduct = product
                         newProduct.modify = parseInt(e.target.value) 
-                        product = newProduct                       
+                        product = newProduct               
                         props.modifyProduct(newProduct)
                         props.modifyStock(newProduct)
                         setCount(count + 1)
@@ -100,6 +101,7 @@ function Cart({ ...props }) {
                           setId(product.id)
                         }}></box-icon>
                         <ModalCart
+                          test={aux}
                           show={modalShow}
                           onHide={() => setModalShow(false)}
                           delete={props.deleteProduct}

@@ -60,6 +60,9 @@ function* getTechnology() {
   } catch (error) {}
 }
 
+function* deleteProduct(action) {
+    yield put(actions.deleteSuccess(action.id));  
+}
 
 function* products() {
   yield takeLatest("GET_JEWELERY", getJewelery);
@@ -67,6 +70,7 @@ function* products() {
   yield takeLatest("GET_MEN", getMen);
   yield takeLatest("GET_WOMEN", getWomen);
   yield takeLatest("GET_TECHNOLOGY", getTechnology);
+  yield takeLatest("DELETE_PRODUCT",deleteProduct)
 }
 
 export default products;

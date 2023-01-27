@@ -57,12 +57,13 @@ function ProductCard({ product, addProduct, modifyProducts }) {
               className="card-button card-button--"
             >
               Ver mas
-            </Link>
+            </Link>          
             <button className="card-button" onClick={() => {
-              if (product.stock > 0) {
-                setLimitCount(limitCount + 1)
+              
+              if (product.stock > 0) {               
                 addProduct(product, count)
                 modifyProducts(product, count)
+                setLimitCount(limitCount + 1)
                 notify()
               }
               else {
