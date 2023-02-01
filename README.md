@@ -1,7 +1,7 @@
 [![ecommerce-copia.png](https://i.postimg.cc/23py46Wy/ecommerce-copia.png)](https://postimg.cc/sGc3z3wC)
 
 # ESTD - ECOMMERCE 🛒
-ESTD es una web, que vende productos y ofrece un gran catalogo. El mismo tiene un apartado de cada sección, carrito de compras, tecnologia, joyeria, mujeres y hombres.
+ESTD es una web, que vende productos y ofrece un gran catálogo. El mismo tiene un apartado de cada sección, carrito de compras, tecnologia, joyeria, mujeres y hombres.
 Posee registro de usuarios y a la vez la posibilidad de iniciar sesión para poder finalizar la compra de lo que el usuario desee.
 Como característica, ofrece diseño adaptable a los distintos dispositivos que accedan.
 
